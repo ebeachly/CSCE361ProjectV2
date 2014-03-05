@@ -1,29 +1,24 @@
 package superClasses;
 
 public abstract class Item extends Interactable {
+	//This class represents a tool, weapon or other small item the player can hold.
 	
 	public boolean interact( String action, Interactable target ){
-		//returns false if the action is not recognized.
-		if ( action.equals("drop") ){
-			this.drop();
-			return true;
-		} else if ( action.equals("pick up") ){
-			this.pickUp();
-			return true;
+		if(action.equals("examine")){
+			return this.examine();
+		} else if ( action.equals("drop") ){
+			return this.drop();
 		}
+		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 	
-	public void drop(){
+	public boolean drop(){
 		//TODO: Implement
 		//Make sure to check that this item exists in the player's inventory
-		return;
+		return true;
 	}
 	
-	public void pickUp(){
-		//TODO: Implement
-		//Make sure to check that the item exists on the player's current Location's dropped items list.
-		return;
-	}
+	//Pick-up function in Player class because you can't interact with items on the ground.
 	
 }

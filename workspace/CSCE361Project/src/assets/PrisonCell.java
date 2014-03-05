@@ -1,13 +1,13 @@
 package assets;
 
-import superClasses.Game;
+import superClasses.World;
 import superClasses.Location;
 
 public class PrisonCell extends Location {
 	
 	public PrisonCell(){
-		this.aspects.add(Game.world.prisonCellDoor);
-		this.droppedItems.add(Game.world.prisonCellKey);
+		this.aspects.add(World.prisonCellDoor);
+		this.droppedItems.add(new PrisonCellKey());
 		return;
 	}
 	
