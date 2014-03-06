@@ -6,8 +6,15 @@ import java.util.LinkedList;
 
 public abstract class Location {
 
-	public LinkedList<Item> droppedItems;
-	public ArrayList<Aspect> aspects;
+	public LinkedList<Item> droppedItems = new LinkedList<Item>();
+	public ArrayList<Aspect> aspects = new ArrayList<Aspect>();
+	
+	public void construct(){
+		//This is the second phase of constructing the locations.
+		//It is necessary for adding things that refer to other locations, like passageways.
+		//but you might as well do all of your constructing here and just use the default constructor.
+		return;
+	}
 	
 	public void printDescription(){
 		return;
@@ -26,7 +33,5 @@ public abstract class Location {
 		}
 		return;
 	}
-	
-
 	
 }

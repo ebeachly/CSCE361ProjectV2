@@ -7,12 +7,11 @@ public abstract class Interactable {
 	//public String indefiniteArticle = "a";	//We could write an algorithm for determining whether to use a or an, or we could just store it.
 	
 	public boolean interact( String action, Interactable target ){
-		//returns false if the player deserves a retry at the command (the action wasn't recognized)
+		//checks if the action is recognized and performs it if it is and returns true
+		//returns false if the the action wasn't recognized
 		if(action.equals("examine")){
 			return this.examine();
 		}
-		//Possibly, we could nest different levels of interact methods, so that we wouldn't have to retype every action that the superclass gives.
-		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 	

@@ -5,11 +5,9 @@ public abstract class Aspect extends Interactable {
 	//Some aspects can 
 	
 	public boolean interact( String action, Interactable target ){
-		if(action.equals("examine")){
-			this.examine();
+		if(super.interact(action, target)){
 			return true;
 		}
-		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 

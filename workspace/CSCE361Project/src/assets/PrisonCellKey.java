@@ -7,23 +7,21 @@ public class PrisonCellKey extends Item {
 	public String name = "cell key";
 	
 	public boolean interact( String action, Interactable target ){
-		if ( action.equals("drop") ){
-			return this.drop();
-		} else if(action.equals("examine")){
-			return this.examine();
+		if(super.interact(action, target)){
+			return true;
 		} else if(action.equals("lock")){
 			return this.lock(target);
 		} else if(action.equals("unlock")){
 			return this.unlock(target);
 		}
-		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 	
 	public boolean unlock(Interactable target){
-		if( target instanceof PrisonCellDoor ){	//Could also check if the target is the PrisonCellDoor in Game.world.
+		if( target instanceof PrisonCellDoor ){
 			System.out.println("You unlock the cell door");
 			((PrisonCellDoor)target).locked = false;
+			((PrisonCellDoor)target).getOtherSide().locked = false;
 		} else {
 			System.out.println("Nothing happened.");
 		}
@@ -34,6 +32,7 @@ public class PrisonCellKey extends Item {
 		if( target instanceof PrisonCellDoor ){
 			System.out.println("You lock the cell door");
 			((PrisonCellDoor)target).locked = true;
+			((PrisonCellDoor)target).getOtherSide().locked = true;
 		} else {
 			System.out.println("Nothing happened.");
 		}

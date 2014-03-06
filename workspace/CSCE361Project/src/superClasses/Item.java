@@ -4,12 +4,11 @@ public abstract class Item extends Interactable {
 	//This class represents a tool, weapon or other small item the player can hold.
 	
 	public boolean interact( String action, Interactable target ){
-		if(action.equals("examine")){
-			return this.examine();
+		if(super.interact(action, target)){
+			return true;
 		} else if ( action.equals("drop") ){
 			return this.drop();
 		}
-		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 	

@@ -5,8 +5,8 @@ import superClasses.World;
 
 public class PrisonHallway extends Location {
 	
-	public PrisonHallway(){
-		this.aspects.add(World.prisonCellDoor);
+	public void construct(){
+		this.aspects.add(new PrisonCellDoor(World.prisonCell));
 		return;
 	}
 	

@@ -3,19 +3,21 @@ package assets;
 import superClasses.Aspect;
 import superClasses.Game;
 import superClasses.Interactable;
-import superClasses.World;
+import superClasses.Location;
 
 public class PrisonCellDoor extends Aspect {
-	protected boolean locked;
+	protected boolean locked = true;
 	public String name = "cell door";
+	public Location destination = null;
+	private PrisonCellDoor otherSide = null;
 	
-	public PrisonCellDoor(){
-		this.locked = true;
+	public PrisonCellDoor( Location destination){
+		this.destination = destination;
 	}
 	
 	public boolean interact( String action, Interactable target ){
-		if(action.equals("examine")){
-			return this.examine();
+		if(super.interact(action, target)){
+			return true;
 		} else if(action.equals("go through")){
 			return this.goThrough();
 		} else if(action.equals("open")){
@@ -25,7 +27,6 @@ public class PrisonCellDoor extends Aspect {
 		} else if(action.equals("unlock")){
 			return this.unlock();
 		}
-		System.out.println("The word \"" + action + "\" wasn't recognized");
 		return false;
 	}
 	
@@ -34,16 +35,8 @@ public class PrisonCellDoor extends Aspect {
 		if( this.locked ){
 			System.out.println("The cell door is locked.");
 		} else {
-			if(Game.player.currentLocation == World.prisonHallway){
-				
-				System.out.println("You walk through the cell door into the prison cell");
-				Game.player.currentLocation = World.prisonCell;
-				
-			} else if( Game.player.currentLocation == World.prisonCell ){
-				
-				System.out.println("You walk through the cell door into the hallway");
-				Game.player.currentLocation = World.prisonHallway;
-			}
+			System.out.println("You walk through the cell door.");
+			Game.player.currentLocation = this.destination;
 		}
 		return true;
 	}
@@ -79,5 +72,30 @@ public class PrisonCellDoor extends Aspect {
 			System.out.println("It is not locked.");
 		}
 		return true;
+	}
+	
+	public PrisonCellDoor getOtherSide(){
+		// Because Aspects can only exist in Locations, not in between them, you need to have a function to find the other side
+		// This function is only necessary for aspects that have states that need to be reflected in both, like locked.
+		if( this.otherSide != null ){
+			//Has it been found already?
+			return this.otherSide;
+		} else {
+			//This is the first time, so we need to find it.
+			for( Aspect a : this.destination.aspects ){
+				//The other side has to be of type PrisonCellDoor
+				if( a instanceof PrisonCellDoor ){
+					PrisonCellDoor temp = (PrisonCellDoor)a;
+					//This function will only be called if the player is in the location that this door is in,
+					//so we can use that to check if this is the correct door.
+					if( temp.destination == Game.player.currentLocation ){
+						this.otherSide = temp;
+						return this.otherSide;
+					}
+				}
+			}
+		}
+		System.out.println("ERROR: PrisonCellDoor failed to find other side.");
+		return null;
 	}
 }
