@@ -7,6 +7,7 @@ public class PrisonCell extends Location {
 	
 	public void construct(){
 		this.aspects.add(new PrisonCellDoor(World.prisonHallway));
+		this.aspects.add(new Guard());
 		this.droppedItems.add(new PrisonCellKey());
 		return;
 	}

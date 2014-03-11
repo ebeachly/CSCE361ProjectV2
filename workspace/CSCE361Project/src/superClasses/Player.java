@@ -8,6 +8,10 @@ public class Player {
 	public LinkedList<Item> inventory;
 	public Location currentLocation;
 	
+	public Player(){
+		inventory = new LinkedList<Item>();
+	}
+	
 	public void pickUp( String name ){
 		//Searches for an item with the given name, removes it from the ground and adds it to the inventory.
 		Iterator<Item> it = this.currentLocation.droppedItems.iterator();

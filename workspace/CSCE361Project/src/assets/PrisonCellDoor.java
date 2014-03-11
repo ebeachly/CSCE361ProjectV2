@@ -7,11 +7,11 @@ import superClasses.Location;
 
 public class PrisonCellDoor extends Aspect {
 	protected boolean locked = true;
-	public String name = "cell door";
 	public Location destination = null;
 	private PrisonCellDoor otherSide = null;
 	
 	public PrisonCellDoor( Location destination){
+		this.name = "cell door";
 		this.destination = destination;
 	}
 	

@@ -3,7 +3,7 @@ package superClasses;
 public abstract class Interactable {
 	//Interactable needs to be a class because otherwise the variables like name would be static
 	
-	public String name = "";			//this is the all-lowercase unique identifier used by the game to identify the interactable object.
+	public String name = "";							//this is the all-lowercase unique identifier used by the game to identify the interactable object.
 	//public String indefiniteArticle = "a";	//We could write an algorithm for determining whether to use a or an, or we could just store it.
 	
 	public boolean interact( String action, Interactable target ){
@@ -18,6 +18,10 @@ public abstract class Interactable {
 	public boolean examine(){
 		System.out.println("There's nothing special about it.");
 		return true;
+	}
+	
+	public String toString(){
+		return this.name;
 	}
 	
 }
