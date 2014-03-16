@@ -9,9 +9,11 @@ public class Guard extends Aspect {
 
 	protected static int position = 3;
 	private static int delta = -1;
+	private PrisonCellDoor cellDoor;
 
-	public Guard() {
+	public Guard(PrisonCellDoor cd) {
 		this.name = "guard";
+		this.cellDoor = cd;
 	}
 
 	@Override
@@ -24,17 +26,23 @@ public class Guard extends Aspect {
 
 	@Override
 	public void takeTurn() {
-		if (Game.player.currentLocation == World.prisonCell) {
+		if (Game.player.currentLocation == World.prisonCell
+				|| Game.player.currentLocation == World.prisonHallway) {
 			if (position == 2) {
 				System.out.println("The guard peers into the cell,"
 						+ " checking that the door is secured.");
-			} else if(Math.abs(position + delta - 2) > Math.abs(position - 2)){
+				if (!this.cellDoor.locked) {
+					System.out.println("The door swings open.");
+					System.out.println("You have been caught.");
+					Game.hasLost = true;
+				}
+			} else if (Math.abs(position + delta - 2) > Math.abs(position - 2)) {
 				System.out.println("The guard walks down the hall");
 			} else {
 				System.out.println("The guard walks toward your cell");
 			}
 			position += delta;
-			if(position == 4 || position == 0){
+			if (position == 4 || position == 0) {
 				delta *= -1;
 			}
 		} else {
