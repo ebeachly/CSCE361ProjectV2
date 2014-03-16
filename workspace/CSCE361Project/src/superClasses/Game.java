@@ -34,7 +34,7 @@ public class Game {
 		// Do the second phase of world construction (First was done when the
 		// program was loaded)
 		World.constructWorld();
-		//clear aspect queue
+		// clear aspect queue
 		clearAspectQueue();
 		// Put the player in the cell
 		Game.player.currentLocation = World.prisonCell;
@@ -45,9 +45,10 @@ public class Game {
 		System.out.println();
 
 		while (!hasLost) {
-			System.out.print(">> ");
-			input = console.nextLine();
-			parser.parseInputAndExecute(input);
+			do {
+				System.out.print(">> ");
+				input = console.nextLine();
+			} while (!parser.parseInputAndExecute(input));
 			aspects.addAll(World.globalAspects);
 			aspects.addAll(player.currentLocation.aspects);
 			while (!aspects.isEmpty()) {
@@ -67,7 +68,7 @@ public class Game {
 		// Add a method to empty the queue (in case an aspect causes a change of
 		// location).
 	}
-	
+
 	public static void clearAspectQueue() {
 		aspects = new ArrayDeque<Aspect>();
 	}
