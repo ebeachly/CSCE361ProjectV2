@@ -26,9 +26,9 @@ public class Game {
 							+ "/\\__|    |/ __ \\| \\_\\ \\ \\_\\ \\  ___/|  | \\/\\     (  <_> )  \\___|    < \\___  |\n"
 							+ "\\________(____  /___  /___  /\\___  >__|    \\/\\_/ \\____/ \\___  >__|_ \\/ ____|\n"
 							+ "              \\/    \\/    \\/     \\/                         \\/     \\/\\/     ");
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			System.out.println("Type:");
+			System.out.println("\"new game\" to start new game");
+			System.out.println("\"quit\" to quit");
 			do {
 				System.out.print(">> ");
 				input = console.nextLine();
