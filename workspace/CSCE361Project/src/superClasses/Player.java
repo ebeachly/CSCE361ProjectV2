@@ -48,8 +48,32 @@ public class Player {
 		return;
 	}
 
-	public void viewInventory() {
-		// TODO: Implement
+	public void viewInventory(){
+		//States the name of every item currently held by the player
+		System.out.println("Your inventory contains:");
+		for(Item i: inventory){
+			System.out.println(i.name);
+		}
+		return;
+	}
+	
+	public boolean itemInInventory(Item itemIn){
+		//Returns true or false depending on if player has said item
+		for(Item i: inventory){
+			if(itemIn.name.compareTo(i.name)==0){
+				return true;
+			}
+		}
+		//Inventory does not contain item, tells the player that information
+		System.out.println("Player does not have " + itemIn.name + " in their inventory.");
+		return false;
+	}
+	
+	public void dropItem(Item i){
+		//Player removes item from inventory and places it in current location
+		this.inventory.remove(i);
+		this.currentLocation.droppedItems.add(i);
+		System.out.println(i.name + " was dropped on the ground.");
 	}
 
 	// public void viewStatus(){} //Perhaps the player could become injured and

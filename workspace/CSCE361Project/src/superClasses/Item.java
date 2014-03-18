@@ -13,9 +13,13 @@ public abstract class Item extends Interactable {
 	}
 	
 	public boolean drop(){
-		//TODO: Implement
+		//Takes the item from the player's inventory and drops it on the ground
 		//Make sure to check that this item exists in the player's inventory
-		return true;
+		if(Game.player.itemInInventory(this)==true){
+			Game.player.dropItem(this);
+			return true;
+		}
+		return false;
 	}
 	
 	//Pick-up function in Player class because you can't interact with items on the ground.
