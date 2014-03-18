@@ -7,6 +7,13 @@ import assets.Guard;
 public class World {
 
 	public static void constructWorld() {
+		//First phase of construction: allocate memory for the locations and global aspects
+		World.prisonCell = new assets.PrisonCell();
+		World.prisonHallway = new assets.PrisonHallway();
+		
+		World.globalAspects = new ArrayList<Aspect>();
+		
+		//Second phase of construction: create local aspects and dropped items that might reference locations and global aspects
 		// Construct Linkages that might reference other Locations (Second phase
 		// of Construction)
 		World.prisonCell.construct();
@@ -17,21 +24,9 @@ public class World {
 		return;
 	}
 
-	/*******************************************
-	 * Locations *******************************************
-	 * 
-	 * Also allocate memory space for all of the locations (First phase of
-	 * Construction).
-	 * 
-	 * If we wanted to, we could move this up to the constructWorld() function,
-	 * but it would take more typing. The advantage would be that the program
-	 * would use almost no memory while it was in the Main Menu.
-	 * 
-	 */
+	public static ArrayList<Aspect> globalAspects = null;
 
-	public static ArrayList<Aspect> globalAspects = new ArrayList<Aspect>();
-
-	public static assets.PrisonCell prisonCell = new assets.PrisonCell();
-	public static assets.PrisonHallway prisonHallway = new assets.PrisonHallway();
+	public static assets.PrisonCell prisonCell = null;
+	public static assets.PrisonHallway prisonHallway = null;
 
 }
