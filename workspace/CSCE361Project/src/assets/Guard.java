@@ -30,7 +30,7 @@ public class Guard extends Aspect {
 				|| Game.player.currentLocation == World.prisonHallway) {
 			if (position == 2) {
 				System.out.println("The guard peers into the cell,"
-						+ " checking that the door is secured.");
+						+ " checking that the door is secured, then continues on.");
 				if (!this.cellDoor.locked) {
 					System.out.println("The door swings open.");
 					System.out.println("You have been caught.");
