@@ -79,4 +79,21 @@ public class Game {
 		aspects = new ArrayDeque<Aspect>();
 	}
 
+	public static void quit() {
+		String response;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Are you sure you want to quit?");
+		do {
+			System.out.print(">>");
+			response = in.nextLine().toLowerCase();
+			if (response.equals('y')) {
+				in.close();
+				System.exit(0);
+			} else if (response.equals('n')) {
+				in.close();
+				return;
+			}
+		} while (true);
+	}
+
 }
