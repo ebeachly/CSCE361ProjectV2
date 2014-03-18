@@ -18,6 +18,8 @@ public class Game {
 		Scanner console = new Scanner(System.in);
 		String input;
 		while (true) {
+			hasLost = false;
+			hasWon = false;
 			System.out
 					.println(""
 							+ "     ____.     ___.  ___.                                      __           \n"
