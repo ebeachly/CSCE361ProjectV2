@@ -397,7 +397,7 @@ public class Parser {
 
 		// First check if it is a special command:
 		if (action.equals("quit")) {
-			System.exit(0);
+			Game.quit();
 			return true;
 		} else if (action.equals("examine") && object.equals("inventory")) {
 			Game.player.viewInventory();
@@ -515,7 +515,7 @@ public class Parser {
 	public static int parseMenuOption(String input) {
 		input = input.toLowerCase();
 		if (input.equals("quit") || input.equals("q")) {
-			System.exit(0);
+			Game.quit();
 			return 0;
 		} else if (input.equals("new") || input.equals("new game")
 				|| input.equals("n")) {

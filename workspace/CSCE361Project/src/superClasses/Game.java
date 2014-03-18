@@ -82,14 +82,14 @@ public class Game {
 	public static void quit() {
 		String response;
 		Scanner in = new Scanner(System.in);
-		System.out.println("Are you sure you want to quit?");
+		System.out.println("Are you sure you want to quit? (y/n)");
 		do {
 			System.out.print(">>");
 			response = in.nextLine().toLowerCase();
-			if (response.equals('y')) {
+			if (response.equals("y") || response.equals("yes")) {
 				in.close();
 				System.exit(0);
-			} else if (response.equals('n')) {
+			} else if (response.equals("n") || response.equals("no")) {
 				in.close();
 				return;
 			}
