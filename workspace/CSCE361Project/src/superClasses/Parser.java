@@ -43,6 +43,7 @@ public class Parser {
 		verbs.put("stab", "attack");
 		verbs.put("slice", "attack");
 		verbs.put("chop", "attack");
+		verbs.put("kill", "attack");
 
 		verbs.put("open", "open");
 
@@ -422,9 +423,13 @@ public class Parser {
 			Interactable objectPointer = findInteractable(object);
 			Interactable targetPointer = findInteractable(target);
 			if (objectPointer == null) {
-				System.out
-						.println("SYSTEM: Could not recognize a direct object in your input.");
-				return false;
+				if( object.isEmpty() ){
+					System.out.println("SYSTEM: could not identify a direct object in your input.");
+					return false;
+				} else {
+					System.out.println("You can't find a " + object + ".");
+					return true;
+				}
 			}
 			return objectPointer.interact(action, targetPointer);
 		}
@@ -435,6 +440,11 @@ public class Parser {
 		// match to name.
 		// Don't search through items on the ground because they shouldn't be
 		// usable.
+		
+		// check if name is null or empty
+		if( name == null || name.isEmpty() ){
+			return null;
+		}
 
 		LinkedList<Interactable> potentialMatches = new LinkedList<Interactable>();
 
