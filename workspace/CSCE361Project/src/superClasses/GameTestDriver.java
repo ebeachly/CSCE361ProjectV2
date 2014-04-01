@@ -1,12 +1,9 @@
 package superClasses;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.NoSuchElementException;
 
 public class GameTestDriver {
 
@@ -15,7 +12,12 @@ public class GameTestDriver {
 				"pick up key\n" +
 				"wait\n" +
 				"unlock door with key\n" +
+				"quit\n" +
+				"no\n" +
 				"go through door\n" +
+				"new\n" +
+				"quit\n" +
+				"no\n" +
 				"quit\n" +
 				"yes").getBytes());
 		System.setIn(in);
@@ -24,8 +26,8 @@ public class GameTestDriver {
 		System.setOut(out);
 		try{
 			Game.main(null);
-		} catch (NoSuchElementException nsee) {
-			
+		} catch (Exception e) {
+			System.setOut(stdout);
 		}
 		System.setOut(stdout);
 		System.out.println();
