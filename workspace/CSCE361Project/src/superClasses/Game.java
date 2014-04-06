@@ -11,11 +11,11 @@ public class Game {
 	public static boolean hasLost = false;
 	public static boolean hasWon = false;
 	public static Queue<Aspect> aspects;
+	protected static Scanner in = new Scanner(System.in);
 
 	public static void main(String args[]) {
 		// TODO: Implement
-		@SuppressWarnings("resource")
-		Scanner console = new Scanner(System.in);
+		Scanner console = in;
 		String input;
 		while (true) {
 			hasLost = false;
@@ -83,7 +83,6 @@ public class Game {
 
 	public static void quit() {
 		String response;
-		Scanner in = new Scanner(System.in);
 		System.out.println("Are you sure you want to quit? (y/n)");
 		do {
 			System.out.print(">>");
