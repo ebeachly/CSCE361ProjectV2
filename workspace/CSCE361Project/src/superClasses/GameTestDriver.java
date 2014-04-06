@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.security.Permission;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class GameTestDriver {
@@ -20,12 +22,25 @@ public class GameTestDriver {
 		System.setSecurityManager(new NoExitSecurityManager());
 
 		test1();
+		// test2();
+		// test3();
+		// test4();
+		// test5();
+		// test6();
+		// test7();
+		// test8();
+		// test9();
 
 	}
 
 	private static void test1() throws FileNotFoundException {
+
 		String test1 = "new\n" + "pick up key\n" + "wait\n"
 				+ "unlock door with key\n" + "quit\n" + "y\n";
+
+		HashMap<Integer, String> output = new HashMap<Integer, String>();
+		
+		boolean passed = true;
 		try {
 			in = new ByteArrayInputStream(test1.getBytes());
 			System.setIn(in);
@@ -38,6 +53,7 @@ public class GameTestDriver {
 			System.setOut(stdout);
 			System.out.println("Error: ");
 			e.printStackTrace();
+			passed = false;
 		} finally {
 			System.setOut(stdout);
 			@SuppressWarnings("resource")
@@ -46,11 +62,27 @@ public class GameTestDriver {
 			while (sc.hasNextLine()) {
 				testOutput.add(sc.nextLine());
 			}
-			if (testOutput.get(testOutput.size() - 2).equals(
-					">> Are you sure you want to quit? (y/n)")) {
-				System.out.println("test1 passed");
+			
+			output.put(testOutput.size() - 2, ">> Are you sure you want to quit? (y/n)");
+			output.put(testOutput.size() - 1, ">>");
+			
+			if (passed) {
+				for (Map.Entry<Integer, String> entry : output.entrySet()) {
+					if (!testOutput.get(entry.getKey())
+							.equals(entry.getValue())) {
+						passed = false;
+						System.out.println("test1 failed: Line "
+								+ entry.getKey());
+						System.out.println("\tExpected: " + entry.getValue());
+						System.out.println("\tReceived: "
+								+ testOutput.get(entry.getKey()));
+					}
+				}
+				if (passed) {
+					System.out.println("test1 passed");
+				}
 			} else {
-				System.out.println("test1 failed");
+				System.out.println("test1 failed: error");
 			}
 		}
 	}

@@ -15,6 +15,7 @@ public class Game {
 
 	public static void main(String args[]) {
 		// TODO: Implement
+		in = new Scanner(System.in);
 		Scanner console = in;
 		String input;
 		while (true) {
