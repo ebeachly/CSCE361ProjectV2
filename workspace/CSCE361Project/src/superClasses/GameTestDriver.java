@@ -24,7 +24,7 @@ public class GameTestDriver {
 		test1();
 		// test2();
 		// test3();
-		// test4();
+		test4();
 		// test5();
 		// test6();
 		// test7();
@@ -35,14 +35,14 @@ public class GameTestDriver {
 
 	private static void test1() throws FileNotFoundException {
 
-		String test1 = "new\n" + "pick up key\n" + "wait\n"
+		String input = "new\n" + "pick up key\n" + "wait\n"
 				+ "unlock door with key\n" + "quit\n" + "y\n";
 
 		HashMap<Integer, String> output = new HashMap<Integer, String>();
-		
+
 		boolean passed = true;
 		try {
-			in = new ByteArrayInputStream(test1.getBytes());
+			in = new ByteArrayInputStream(input.getBytes());
 			System.setIn(in);
 			out = new PrintStream("testing.txt");
 			System.setOut(out);
@@ -62,10 +62,11 @@ public class GameTestDriver {
 			while (sc.hasNextLine()) {
 				testOutput.add(sc.nextLine());
 			}
-			
-			output.put(testOutput.size() - 2, ">> Are you sure you want to quit? (y/n)");
+
+			output.put(testOutput.size() - 2,
+					">> Are you sure you want to quit? (y/n)");
 			output.put(testOutput.size() - 1, ">>");
-			
+
 			if (passed) {
 				for (Map.Entry<Integer, String> entry : output.entrySet()) {
 					if (!testOutput.get(entry.getKey())
@@ -83,6 +84,59 @@ public class GameTestDriver {
 				}
 			} else {
 				System.out.println("test1 failed: error");
+			}
+		}
+	}
+
+	private static void test4() throws FileNotFoundException {
+
+		String input = "new\n" + "pick up rock\n" + "quit\n" + "yes\n";
+
+		HashMap<Integer, String> output = new HashMap<Integer, String>();
+
+		boolean passed = true;
+		try {
+			in = new ByteArrayInputStream(input.getBytes());
+			System.setIn(in);
+			out = new PrintStream("testing.txt");
+			System.setOut(out);
+			Game.main(null);
+		} catch (ExitException se) {
+
+		} catch (Exception e) {
+			System.setOut(stdout);
+			System.out.println("Error: ");
+			e.printStackTrace();
+			passed = false;
+		} finally {
+			System.setOut(stdout);
+			@SuppressWarnings("resource")
+			Scanner sc = new Scanner(new File("testing.txt"));
+			ArrayList<String> testOutput = new ArrayList<String>();
+			while (sc.hasNextLine()) {
+				testOutput.add(sc.nextLine());
+			}
+
+			output.put(testOutput.size() - 4,
+					">> You can't find a rock on the ground.");			
+
+			if (passed) {
+				for (Map.Entry<Integer, String> entry : output.entrySet()) {
+					if (!testOutput.get(entry.getKey())
+							.equals(entry.getValue())) {
+						passed = false;
+						System.out.println("test4 failed: Line "
+								+ entry.getKey());
+						System.out.println("\tExpected: " + entry.getValue());
+						System.out.println("\tReceived: "
+								+ testOutput.get(entry.getKey()));
+					}
+				}
+				if (passed) {
+					System.out.println("test4 passed");
+				}
+			} else {
+				System.out.println("test4 failed: error");
 			}
 		}
 	}

@@ -7,8 +7,8 @@ import superClasses.World;
 
 public class Guard extends Aspect {
 
-	protected static int position = 3;
-	private static int delta = -1;
+	protected int position = 3;
+	private int delta = -1;
 	private PrisonCellDoor cellDoor;
 
 	public Guard(PrisonCellDoor cd) {
