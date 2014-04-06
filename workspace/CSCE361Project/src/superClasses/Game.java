@@ -6,15 +6,16 @@ import java.util.Scanner;
 
 public class Game {
 
-	public static Player player = new Player();
-	public static Parser parser = new Parser();
+	public static Player player;
+	public static Parser parser;
 	public static boolean hasLost = false;
 	public static boolean hasWon = false;
 	public static Queue<Aspect> aspects;
 	protected static Scanner in = new Scanner(System.in);
 
 	public static void main(String args[]) {
-		// TODO: Implement
+		player = new Player();
+		parser = new Parser();
 		in = new Scanner(System.in);
 		Scanner console = in;
 		String input;
