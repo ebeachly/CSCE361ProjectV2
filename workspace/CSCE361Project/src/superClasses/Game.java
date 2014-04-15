@@ -38,9 +38,7 @@ public class Game {
 				input = console.nextLine();
 			} while (Parser.parseMenuOption(input) == 0);
 
-			// Do the second phase of world construction (First was done when
-			// the
-			// program was loaded)
+			// Load the world.
 			World.constructWorld();
 			// clear aspect queue
 			clearAspectQueue();
@@ -54,8 +52,8 @@ public class Game {
 					System.out.print(">> ");
 					input = console.nextLine();
 				} while (!parser.parseInputAndExecute(input));
-				aspects.addAll(World.globalAspects);
-				aspects.addAll(player.currentLocation.aspects);
+					aspects.addAll(World.globalAspects);
+					aspects.addAll(player.currentLocation.aspects);
 				while (!aspects.isEmpty()) {
 					aspects.poll().takeTurn();
 				}
@@ -93,7 +91,6 @@ public class Game {
 				in.close();
 				System.exit(0);
 			} else if (response.equals("n") || response.equals("no")) {
-				in.close();
 				return;
 			}
 		} while (true);

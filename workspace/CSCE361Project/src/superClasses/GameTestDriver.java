@@ -93,7 +93,7 @@ public class GameTestDriver {
 
 	private static void test1_2() throws FileNotFoundException {
 
-		String test1 = "quit\n"+"no\n";
+		String test1 = "quit\n"+"no\n"+"quit\n"+"yes\n";
 
 		HashMap<Integer, String> output = new HashMap<Integer, String>();
 		
@@ -120,7 +120,7 @@ public class GameTestDriver {
 				testOutput.add(sc.nextLine());
 			}
 			
-			output.put(testOutput.size() - 2, ">> Are you sure you want to quit? (y/n)");
+			output.put(testOutput.size() - 2, ">>>> Are you sure you want to quit? (y/n)");
 			output.put(testOutput.size() - 1, ">>");
 			
 			if (passed) {
@@ -416,7 +416,7 @@ public class GameTestDriver {
 	
 	private static void test2_5() throws FileNotFoundException {
 
-		String test1 = "new game\n"+"examine\n"+"quit\n"+"no\n";
+		String test1 = "new game\n"+"examine\n"+"quit\n"+"no\n"+"quit\n"+"yes\n";
 
 		HashMap<Integer, String> output = new HashMap<Integer, String>();
 		
@@ -892,7 +892,7 @@ public class GameTestDriver {
 			
 			//The expected output for specific lines
 			output.put(13,"The guard walks toward your cell.");
-			output.put(14,">> You unlock the cell door");
+			output.put(14,">> You unlock the cell door.");
 			output.put(15,"The guard peers into the cell, checking that the door is secured.");
 			output.put(16,"The door swings open.");
 			output.put(17,"You have been caught.");

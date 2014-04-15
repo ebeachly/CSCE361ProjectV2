@@ -15,6 +15,13 @@ public class Player {
 	public void pickUp(String name) {
 		// Searches for an item with the given name, removes it from the ground
 		// and adds it to the inventory.
+		
+		// check if name is null or empty
+		if( name == null || name.isEmpty() || name.equals(" ")){
+			System.out.println("You didn't find it on the ground.");
+			return;
+		}
+		
 		Iterator<Item> it = this.currentLocation.droppedItems.iterator();
 		boolean unique = true;
 		Item potential = null;

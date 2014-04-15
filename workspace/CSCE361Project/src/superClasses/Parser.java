@@ -73,7 +73,9 @@ public class Parser {
 		nouns.put("cell door", "cell door");
 
 		nouns.put("sword", "sword");
-
+		nouns.put("rock", "rock");
+		nouns.put("stone", "rock");
+		nouns.put("pebble", "rock");
 		nouns.put("goblin", "goblin");
 
 		nouns.put("room", "location");
@@ -442,7 +444,7 @@ public class Parser {
 		// usable.
 		
 		// check if name is null or empty
-		if( name == null || name.isEmpty() ){
+		if( name == null || name.isEmpty() || name.equals(" ")){
 			return null;
 		}
 

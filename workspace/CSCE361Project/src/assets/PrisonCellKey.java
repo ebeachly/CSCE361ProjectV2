@@ -22,7 +22,7 @@ public class PrisonCellKey extends Item {
 
 	public boolean unlock(Interactable target) {
 		if (target instanceof PrisonCellDoor) {
-			System.out.println("You unlock the cell door");
+			System.out.println("You unlock the cell door.");
 			((PrisonCellDoor) target).locked = false;
 			((PrisonCellDoor) target).getOtherSide().locked = false;
 		} else {
@@ -33,7 +33,7 @@ public class PrisonCellKey extends Item {
 
 	public boolean lock(Interactable target) {
 		if (target instanceof PrisonCellDoor) {
-			System.out.println("You lock the cell door");
+			System.out.println("You lock the cell door.");
 			((PrisonCellDoor) target).locked = true;
 			((PrisonCellDoor) target).getOtherSide().locked = true;
 		} else {

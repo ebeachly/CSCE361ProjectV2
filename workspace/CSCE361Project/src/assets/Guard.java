@@ -41,7 +41,7 @@ public class Guard extends Aspect {
 					Game.hasWon = true;
 				}
 			} else if (position == 5 || position == -1) {
-				System.out.println("The guard turns around");
+				System.out.println("The guard turns around.");
 				delta *= -1;
 				if (Game.player.currentLocation == World.prisonHallway) {
 					System.out
@@ -50,13 +50,13 @@ public class Guard extends Aspect {
 					Game.hasLost = true;
 				}
 			} else if (Math.abs(position + delta - 2) > Math.abs(position - 2)) {
-				System.out.println("The guard walks away from your cell");
+				System.out.println("The guard walks away from your cell.");
 				if (Game.player.currentLocation == World.prisonHallway) {
 					System.out.println("You escape silently into the shadows.");
 					Game.hasWon = true;
 				}
 			} else {
-				System.out.println("The guard walks toward your cell");
+				System.out.println("The guard walks toward your cell.");
 				if (Game.player.currentLocation == World.prisonHallway) {
 					System.out
 							.println("You step out of your cell in full view of the guard.");

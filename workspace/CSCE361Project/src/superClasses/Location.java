@@ -22,7 +22,7 @@ public abstract class Location {
 	
 	public void printItemsOnGround(){
 		if( this.droppedItems.size() == 1 ){
-			System.out.println("On the ground there is a: " + this.droppedItems.get(0).name );	//TODO: conditionally do a/an based on first letter of name
+			System.out.println("On the ground there is a: " + this.droppedItems.get(0).name + ".");	//TODO: conditionally do a/an based on first letter of name
 		} else if ( this.droppedItems.size() > 1 ){
 			System.out.println("On the ground there are:");
 			Iterator<Item> it = this.droppedItems.iterator();

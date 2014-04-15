@@ -52,7 +52,7 @@ public class PrisonCellDoor extends Aspect {
 	public boolean lock() {
 		// This function is what gets called if you try to lock the door by
 		// using the door, instead of using the key on the door
-		System.out.println("You need to use a key to lock this cell door");
+		System.out.println("You need to use a key to lock this cell door.");
 		return true;
 	}
 
