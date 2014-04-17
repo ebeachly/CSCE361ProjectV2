@@ -45,6 +45,11 @@ public class Parser {
 		verbs.put("chop", "attack");
 		verbs.put("kill", "attack");
 
+		verbs.put("toss", "toss");
+		verbs.put("throw", "toss");
+		verbs.put("fling", "toss");
+		verbs.put("hurl", "toss");
+		
 		verbs.put("open", "open");
 
 		verbs.put("close", "close");
@@ -174,7 +179,7 @@ public class Parser {
 				startIndexOfAction = i + 1;
 				currentPartOfSpeechBeingSearchedFor = 2;
 
-			} else if (words[i].equals("at")) {
+			} else if (words[i].equals("at") || words[i].equals("in") ){
 
 				// Stop defining the range the previous part of speech was in
 				if (currentPartOfSpeechBeingSearchedFor != 0 && i >= 1) {
@@ -475,6 +480,29 @@ public class Parser {
 
 		// Search through the aspects in the player's current location
 		for (Interactable i : Game.player.currentLocation.aspects) {
+			if (i.name.equals(name)) {
+				// Direct match, return this
+				return i;
+			} else if (i.name.contains(name)) {
+
+				// If it has the same name as something already in the list,
+				// don't add it
+				boolean unique = true;
+				for (Interactable j : potentialMatches) {
+					if (i.name.equals(j.name)) {
+						unique = false;
+					}
+				}
+
+				if (unique) {
+					potentialMatches.add(i);
+				}
+
+			}
+		}
+		
+		// Search through the aspects in the global aspects list
+		for (Interactable i : World.globalAspects) {
 			if (i.name.equals(name)) {
 				// Direct match, return this
 				return i;

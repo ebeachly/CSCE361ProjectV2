@@ -1,6 +1,6 @@
 package assets;
 
-import superClasses.World;
+import superClasses.TestWorld;
 import superClasses.Location;
 
 public class PrisonCell extends Location {
@@ -8,7 +8,7 @@ public class PrisonCell extends Location {
 	PrisonCellDoor cellDoor;
 	
 	public void construct(){
-		cellDoor = new PrisonCellDoor(World.prisonHallway);
+		cellDoor = new PrisonCellDoor(TestWorld.prisonHallway);
 		this.aspects.add(cellDoor);
 		this.droppedItems.add(new PrisonCellKey());
 		return;

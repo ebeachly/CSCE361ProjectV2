@@ -15,9 +15,15 @@ public abstract class Interactable {
 		return false;
 	}
 	
-	public boolean examine(){
+	protected boolean examine(){
 		System.out.println("There's nothing special about it.");
 		return true;
+	}
+	
+	public boolean damage(Item weapon){
+		//Returns true if the weapon had an effect and prints out a description of the effect.
+		//If there was no effect, returns false.
+		return false;
 	}
 	
 	public String toString(){

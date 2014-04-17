@@ -72,15 +72,18 @@ public class Player {
 			}
 		}
 		//Inventory does not contain item, tells the player that information
-		System.out.println("Player does not have " + itemIn.name + " in their inventory.");
+		System.out.println("You don't have " + itemIn.name + " in your inventory.");
 		return false;
 	}
 	
-	public void dropItem(Item i){
+	public boolean dropItem(Item i){
 		//Player removes item from inventory and places it in current location
-		this.inventory.remove(i);
-		this.currentLocation.droppedItems.add(i);
-		System.out.println(i.name + " was dropped on the ground.");
+		//returns true if the item was in the player's inventory.
+		if(this.inventory.remove(i)){
+			this.currentLocation.droppedItems.add(i);
+			return true;
+		}
+		return false;
 	}
 
 	// public void viewStatus(){} //Perhaps the player could become injured and

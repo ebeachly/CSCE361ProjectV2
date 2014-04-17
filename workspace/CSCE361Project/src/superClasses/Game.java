@@ -42,8 +42,6 @@ public class Game {
 			World.constructWorld();
 			// clear aspect queue
 			clearAspectQueue();
-			// Put the player in the cell
-			Game.player.currentLocation = World.prisonCell;
 
 			player.currentLocation.printDescription();
 
