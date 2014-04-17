@@ -10,6 +10,7 @@ public class Game {
 	public static Parser parser;
 	public static boolean hasLost = false;
 	public static boolean hasWon = false;
+	public static boolean quit = false;
 	public static Queue<Aspect> aspects;
 	protected static Scanner in = new Scanner(System.in);
 
@@ -19,6 +20,7 @@ public class Game {
 		in = new Scanner(System.in);
 		Scanner console = in;
 		String input;
+		
 		while (true) {
 			hasLost = false;
 			hasWon = false;
@@ -34,9 +36,12 @@ public class Game {
 			System.out.println("\"new game\" to start new game");
 			System.out.println("\"quit\" to quit");
 			do {
+				if( quit ){
+					return;
+				}
 				System.out.print(">> ");
 				input = console.nextLine();
-			} while (Parser.parseMenuOption(input) == 0);
+			} while (!Parser.parseMenuOption(input));
 
 			// Load the world.
 			World.constructWorld();
@@ -49,7 +54,11 @@ public class Game {
 				do {
 					System.out.print(">> ");
 					input = console.nextLine();
-				} while (!parser.parseInputAndExecute(input));
+					//If parseInput fails, then executeCommand will get short circuited.
+				} while ( !( parser.parseInput(input) && parser.executeCommand()) );
+					if( quit ){
+						return;
+					}
 					aspects.addAll(World.globalAspects);
 					aspects.addAll(player.currentLocation.aspects);
 				while (!aspects.isEmpty()) {
@@ -83,11 +92,11 @@ public class Game {
 		String response;
 		System.out.println("Are you sure you want to quit? (y/n)");
 		do {
-			System.out.print(">>");
+			System.out.print(">> ");
 			response = in.nextLine().toLowerCase();
 			if (response.equals("y") || response.equals("yes")) {
-				in.close();
-				System.exit(0);
+				quit = true;
+				return;
 			} else if (response.equals("n") || response.equals("no")) {
 				return;
 			}

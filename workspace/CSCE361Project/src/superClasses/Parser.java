@@ -7,6 +7,10 @@ public class Parser {
 
 	HashMap<String, String> verbs;
 	HashMap<String, String> nouns;
+	
+	String object;
+	String action;
+	String target;
 
 	public Parser() {
 		this.verbs = new HashMap<String, String>();
@@ -82,13 +86,22 @@ public class Parser {
 		nouns.put("stone", "rock");
 		nouns.put("pebble", "rock");
 		nouns.put("goblin", "goblin");
-
+		
+		nouns.put("north", "north");
+		nouns.put("n", "north");
+		nouns.put("east", "east");
+		nouns.put("e", "east");
+		nouns.put("south", "south");
+		nouns.put("s", "south");
+		nouns.put("west", "west");
+		nouns.put("w", "west");
+		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
 	}
 
-	public boolean parseInputAndExecute(String input) {
-		// parses input and executes it. Returns false if the input was not
+	public boolean parseInput(String input) {
+		// parses input into the object, action, and target. Returns false if the input was not
 		// understood.
 
 		// To parse:
@@ -259,8 +272,7 @@ public class Parser {
 			++startIndexOfAction;
 		}
 		if (!match) {
-			System.out
-					.println("SYSTEM: Could not recognize an action in your input.");
+			System.out.println("SYSTEM: Could not recognize an action in your input.");
 			return false;
 		}
 
@@ -397,48 +409,57 @@ public class Parser {
 		// Now we have found the action, the object, and maybe the target. Time
 		// to execute the command
 
+		this.object = object;
+		this.action = action;
+		this.target = target;
+		
 		// DEBUG
-		// System.out.println("DEBUG: Action: " + action);
-		// System.out.println("DEBUG: Object: " + object);
-		// System.out.println("DEBUG: Target: " + target);
-
+		//System.out.println("DEBUG: Action: " + action);
+		//System.out.println("DEBUG: Object: " + object);
+		//System.out.println("DEBUG: Target: " + target);
+		
+		return true;
+	}
+	
+	public boolean executeCommand(){
 		// First check if it is a special command:
-		if (action.equals("quit")) {
+		
+		if (this.action.equals("quit")) {
 			Game.quit();
 			return true;
-		} else if (action.equals("examine") && object.equals("inventory")) {
+		} else if (this.action.equals("examine") && this.object.equals("inventory")) {
 			Game.player.viewInventory();
 			return true;
-		} else if (action.equals("examine") && object.equals("location")) {
+		} else if (this.action.equals("examine") && this.object.equals("location")) {
 			Game.player.currentLocation.printDescription();
 			return true;
-		} else if (action.equals("examine") && object.equals("status")) {
+		} else if (this.action.equals("examine") && this.object.equals("status")) {
 			// Game.player.viewStatus();
 			return true;
-		} else if (action.equals("pick up")) {
-			Game.player.pickUp(object); // pickup needs to find the object and
+		} else if (this.action.equals("pick up")) {
+			Game.player.pickUp(this.object); // pickup needs to find the object and
 										// remove it, so if we found the
 										// pointer, we would just have to search
 										// again anyways because we still don't
 										// know where it is.
 			return true;
-		} else if (action.equals("wait")) {
+		} else if (this.action.equals("wait")) {
 			System.out.println("Some time goes by.");
 			return true;
 		} else {
 			// Otherwise, it is a normal command
-			Interactable objectPointer = findInteractable(object);
-			Interactable targetPointer = findInteractable(target);
+			Interactable objectPointer = findInteractable(this.object);
+			Interactable targetPointer = findInteractable(this.target);
 			if (objectPointer == null) {
-				if( object.isEmpty() ){
+				if( this.object.isEmpty() ){
 					System.out.println("SYSTEM: could not identify a direct object in your input.");
 					return false;
 				} else {
-					System.out.println("You can't find a " + object + ".");
+					System.out.println("You can't find a " + this.object + ".");
 					return true;
 				}
 			}
-			return objectPointer.interact(action, targetPointer);
+			return objectPointer.interact(this.action, targetPointer);
 		}
 	}
 
@@ -542,16 +563,16 @@ public class Parser {
 		}
 	}
 
-	public static int parseMenuOption(String input) {
+	public static boolean parseMenuOption(String input) {
 		input = input.toLowerCase();
 		if (input.equals("quit") || input.equals("q")) {
 			Game.quit();
-			return 0;
+			return false;
 		} else if (input.equals("new") || input.equals("new game")
 				|| input.equals("n")) {
-			return 1;
+			return true;
 		} else {
-			return 0;
+			return false;
 		}
 	}
 }

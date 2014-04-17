@@ -57,9 +57,13 @@ public class Player {
 
 	public void viewInventory(){
 		//States the name of every item currently held by the player
-		System.out.println("Your inventory contains:");
-		for(Item i: inventory){
-			System.out.println(i.name);
+		if( !inventory.isEmpty() ){
+			System.out.println("Your inventory contains:");
+			for(Item i: inventory){
+				System.out.println(i.name);
+			}
+		} else {
+			System.out.println("Your inventory contains nothing.");
 		}
 		return;
 	}

@@ -1,5 +1,6 @@
 package assets;
 
+import superClasses.Game;
 import superClasses.Location;
 
 public class SWField extends Location {
@@ -18,7 +19,13 @@ public class SWField extends Location {
 		this.east = new CardinalDirection("east", null, "To the east there is a field and a house.");
 		this.south = new CardinalDirection("south", null, "To the south there is a deadly cliff that drops off to the sea.");
 		this.west = new CardinalDirection("west", null, "To the west there is a rapid river that pours off a cliff into the sea.\n" + 
-														" Beyond that is a crenelated castle wall with many towers.");
+														"Beyond that is a crenelated castle wall with many towers.");
+		
+		this.aspects.add(north);
+		this.aspects.add(east);
+		this.aspects.add(south);
+		this.aspects.add(west);
+		
 		return;
 	}
 	
@@ -31,10 +38,12 @@ public class SWField extends Location {
 		
 		if(firstTimePrintingDescription){
 			firstTimePrintingDescription = false;
+			Game.player.viewInventory();
 			System.out.println("Suddenly a piece of paper comes soaring on the wind and lands right in front of your feet.");
 			//Add the phamplet item to the ground.
 		}
 		
 		this.printItemsOnGround();
+		
 	}
 }

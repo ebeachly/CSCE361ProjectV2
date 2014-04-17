@@ -30,6 +30,7 @@ public class CardinalDirection extends Aspect {
 		// If the destination is null, then something is blocking the path. Print the description.
 		if (this.destination == null) {
 			System.out.println(description);
+			System.out.println("You can't travel in that direction.");
 		} else {
 			System.out.println("You travel " + this.name + " for a while.");
 			Game.player.currentLocation = this.destination;
@@ -41,7 +42,6 @@ public class CardinalDirection extends Aspect {
 	protected boolean examine(){
 		//This should say something like "To the north there is..."
 		System.out.println(description);
-		System.out.println("You can't travel in that direction.");
 		return true;
 	}
 }
