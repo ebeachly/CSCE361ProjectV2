@@ -74,6 +74,12 @@ public class Parser {
 		nouns.put("self", "status");
 		nouns.put("myself", "status");
 		nouns.put("health", "status");
+		
+		nouns.put("map", "map");
+		
+		nouns.put("pamphlet", "pamphlet");
+		nouns.put("paper", "pamphlet");
+		nouns.put("flyer", "pamphlet");
 
 		nouns.put("key", "key");
 		nouns.put("cell key", "cell key");
@@ -85,6 +91,7 @@ public class Parser {
 		nouns.put("rock", "rock");
 		nouns.put("stone", "rock");
 		nouns.put("pebble", "rock");
+		
 		nouns.put("goblin", "goblin");
 		
 		nouns.put("north", "north");

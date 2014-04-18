@@ -40,7 +40,8 @@ public class SWField extends Location {
 			firstTimePrintingDescription = false;
 			Game.player.viewInventory();
 			System.out.println("Suddenly a piece of paper comes soaring on the wind and lands right in front of your feet.");
-			//Add the phamplet item to the ground.
+			Pamphlet pamphlet = new Pamphlet();
+			this.droppedItems.add(pamphlet);
 		}
 		
 		this.printItemsOnGround();
