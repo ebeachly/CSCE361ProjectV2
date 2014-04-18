@@ -1,12 +1,12 @@
 package assets;
 
 import superClasses.Location;
-import superClasses.TestWorld;
+import superClasses.World;
 
 public class PrisonHallway extends Location {
 	
 	public void construct(){
-		this.aspects.add(new PrisonCellDoor(TestWorld.prisonCell));
+		this.aspects.add(new PrisonCellDoor(World.prisonCell));
 		return;
 	}
 	
