@@ -2,15 +2,13 @@ package superClasses;
 
 import java.util.ArrayList;
 
-import assets.Guard;
-import assets.SWField;
-
 
 public class World {
 
 	public static void constructWorld() {
 		//First phase of construction: allocate memory for the locations and global aspects
-		swField = new SWField();
+		swField = new assets.SWField();
+		wField = new assets.WField();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -18,6 +16,7 @@ public class World {
 		// Construct Linkages that might reference other Locations (Second phase
 		// of Construction)
 		swField.construct();
+		wField.construct();
 
 		//Initialize global aspects
 		
@@ -40,7 +39,7 @@ public class World {
 		World.prisonCell.construct();
 		World.prisonHallway.construct();
 
-		Guard prisonGuard = new Guard(prisonCell.getCellDoor());
+		assets.Guard prisonGuard = new assets.Guard(prisonCell.getCellDoor());
 		globalAspects.add(prisonGuard);
 		
 		//Put the player in the cell
@@ -52,6 +51,7 @@ public class World {
 	
 	//Locations for the main world
 	public static assets.SWField swField = null;
+	public static assets.WField wField = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;

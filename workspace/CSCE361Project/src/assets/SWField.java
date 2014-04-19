@@ -2,6 +2,7 @@ package assets;
 
 import superClasses.Game;
 import superClasses.Location;
+import superClasses.World;
 
 public class SWField extends Location {
 	
@@ -15,7 +16,7 @@ public class SWField extends Location {
 	public void construct(){
 		firstTimePrintingDescription = true;
 		
-		this.north = new CardinalDirection("north", null, "To the north there is a road that runs east and west.");
+		this.north = new CardinalDirection("north", World.wField , "To the north there is a road that runs east and west.");
 		this.east = new CardinalDirection("east", null, "To the east there is a field and a house.");
 		this.south = new CardinalDirection("south", null, "To the south there is a deadly cliff that drops off to the sea.");
 		this.west = new CardinalDirection("west", null, "To the west there is a rapid river that pours off a cliff into the sea.\n" + 
