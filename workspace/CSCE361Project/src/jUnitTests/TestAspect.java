@@ -12,14 +12,14 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
-import superClasses.Interactable;
+import superClasses.Aspect;
 
-public class TestInteractable {
-	
+public class TestAspect {
+
 	final static PrintStream stdout = System.out;
 	private static PrintStream out = null;
 	HashMap<Integer, String> output;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		//Setup testing utilities
@@ -31,19 +31,19 @@ public class TestInteractable {
 	@Test
 	public void testInteract() throws FileNotFoundException  {
 		
-		//Since Interactable is abstract, create an anonymous class that extends it.
-		class TestInt extends Interactable {
-			TestInt(){
+		//Since Aspect is abstract, create an anonymous class that extends it.
+		class TestAsp extends Aspect {
+			TestAsp(){
 				this.name = "testName";
 			}
 		}
 		
-		TestInt testInt = new TestInt();
+		TestAsp testAsp = new TestAsp();
 		
 		//Perform operations
 		//Since this is a white box test, just call interact(). Don't run main.
-		assertFalse(testInt.interact("gobbldeygook", null));
-		assertTrue(testInt.interact("examine", null));
+		assertFalse(testAsp.interact("gobbldeygook", null));
+		assertTrue(testAsp.interact("examine", null));
 
 		//Read in the file of what was printed out
 		Scanner sc = new Scanner(new File("testing.txt"));
@@ -63,18 +63,18 @@ public class TestInteractable {
 	public void testPublicMethods(){
 		
 		//Since Interactable is abstract, create an anonymous class that extends it.
-		class TestInt extends Interactable {
-			TestInt(){
+		class TestAsp extends Aspect {
+			TestAsp(){
 				this.name = "testName";
 			}
 		}
 		
-		TestInt testInt = new TestInt();
+		TestAsp testAsp = new TestAsp();
 		
 		//Perform operations
-		assertFalse(testInt.damage(null));
-		assertArrayEquals( "testName".toCharArray() , testInt.toString().toCharArray());
+		testAsp.takeTurn();
 
 	}
+
 
 }
