@@ -8,9 +8,9 @@ public class Parser {
 	HashMap<String, String> verbs;
 	HashMap<String, String> nouns;
 	
-	String object;
-	String action;
-	String target;
+	public String object;
+	public String action;
+	public String target;
 
 	public Parser() {
 		this.verbs = new HashMap<String, String>();
@@ -237,9 +237,9 @@ public class Parser {
 		// Now we need to find the parts of speech within those ranges by
 		// checking for matches with our Thesaurus
 
-		String action = "";
-		String object = "";
-		String target = "";
+		action = "";
+		object = "";
+		target = "";
 
 		// The action is the most important word to find. Search looking for a
 		// match for that first.
@@ -279,6 +279,7 @@ public class Parser {
 			++startIndexOfAction;
 		}
 		if (!match) {
+			action = "";
 			System.out.println("SYSTEM: Could not recognize an action in your input.");
 			return false;
 		}
@@ -415,10 +416,6 @@ public class Parser {
 
 		// Now we have found the action, the object, and maybe the target. Time
 		// to execute the command
-
-		this.object = object;
-		this.action = action;
-		this.target = target;
 		
 		// DEBUG
 		//System.out.println("DEBUG: Action: " + action);
