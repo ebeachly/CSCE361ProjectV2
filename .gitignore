@@ -1,3 +1,4 @@
 workspace/.metadata/
-workspace/CSCE361Project/bin/*
+workspace\CSCE361Project\bin\
+workspace/CSCE361Project/bin/
 workspace/CSCE361Project/testing.txt
