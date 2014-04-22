@@ -11,6 +11,10 @@ public class World {
 		wField = new assets.WField();
 		sField = new assets.SField();
 		cField = new assets.CField();
+		eForest = new assets.EForest();
+		eForestBuffer = new assets.EForestBuffer();
+		neForest = new assets.NEForest();
+		neForestBuffer = new assets.NEForestBuffer();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -21,6 +25,8 @@ public class World {
 		wField.construct();
 		sField.construct();
 		cField.construct();
+		eForest.construct();
+		eForestBuffer.construct();
 
 		//Initialize global aspects
 		
@@ -58,6 +64,10 @@ public class World {
 	public static assets.WField wField = null;
 	public static assets.SField sField = null;
 	public static assets.CField cField = null;
+	public static assets.EForest eForest = null;
+	public static assets.EForestBuffer eForestBuffer = null;
+	public static assets.NEForest neForest = null;
+	public static assets.NEForestBuffer neForestBuffer = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;

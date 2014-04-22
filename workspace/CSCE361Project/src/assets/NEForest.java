@@ -3,22 +3,22 @@ package assets;
 import superClasses.Location;
 import superClasses.World;
 
-public class WField extends Location {
+public class NEForest extends Location {
 
 	private CardinalDirection north;
 	private CardinalDirection east;
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public WField() {
+	public NEForest() {
 		this.north = new CardinalDirection("north", null,
-				"To the north there is a field with a wagon.");
+				"To the north there are massive cliffs");
 		this.east = new CardinalDirection("east", null,
-				"To the east the road leads toward a house.");
-		this.south = new CardinalDirection("south", World.swField,
-				"To the south there is an empty field.");
-		this.west = new CardinalDirection("west", null,
-				"To the west there is a bridge toward a castle.");
+				"To the east there is dense forest.");
+		this.south = new CardinalDirection("south", World.eForestBuffer,
+				"To the south there is dense forest.");
+		this.west = new CardinalDirection("west", World.cField,
+				"To the west there is a field.");
 
 		this.aspects.add(north);
 		this.aspects.add(east);
@@ -29,7 +29,7 @@ public class WField extends Location {
 	}
 
 	public void printDescription() {
-		System.out.println("You are on a road that leads east and west.");
+		System.out.println("You are in a forest.");
 		this.north.examine();
 		this.east.examine();
 		this.west.examine();
