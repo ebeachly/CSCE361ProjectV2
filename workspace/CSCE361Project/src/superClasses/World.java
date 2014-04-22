@@ -9,6 +9,8 @@ public class World {
 		//First phase of construction: allocate memory for the locations and global aspects
 		swField = new assets.SWField();
 		wField = new assets.WField();
+		sField = new assets.SField();
+		cField = new assets.CField();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -17,6 +19,8 @@ public class World {
 		// of Construction)
 		swField.construct();
 		wField.construct();
+		sField.construct();
+		cField.construct();
 
 		//Initialize global aspects
 		
@@ -52,6 +56,8 @@ public class World {
 	//Locations for the main world
 	public static assets.SWField swField = null;
 	public static assets.WField wField = null;
+	public static assets.SField sField = null;
+	public static assets.CField cField = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;
