@@ -52,6 +52,7 @@ public abstract class Item extends Interactable {
 		System.out.println("That's a dumb idea.");
 		return true;
 	}
+	
 	protected boolean examine(){
 		if(this.name.contains("vorpal")){
 			System.out.println("The edges of it seem exceedingly sharp.");

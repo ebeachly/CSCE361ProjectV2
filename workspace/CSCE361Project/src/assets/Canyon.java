@@ -9,6 +9,7 @@ public class Canyon extends Location {
 	private CardinalDirection east;
 	private CardinalDirection south;
 	private CardinalDirection west;
+	private Jubjub jubjub;
 
 	public void construct() {
 
@@ -16,7 +17,7 @@ public class Canyon extends Location {
 				"To the north the canyon continues into darkness.");
 		this.east = new CardinalDirection("east", null,
 				"To the east there is a large cliff.");
-		this.south = new CardinalDirection("south", null,
+		this.south = new CardinalDirection("south", World.nField,
 				"To the south there is an empty field.");
 		this.west = new CardinalDirection("west", null,
 				"To the west there is a large cliff.");
@@ -25,24 +26,21 @@ public class Canyon extends Location {
 		this.aspects.add(east);
 		this.aspects.add(south);
 		this.aspects.add(west);
+
+		this.jubjub = new Jubjub();
+
+		this.aspects.add(jubjub);
 	}
 
 	public void printDescription() {
 		System.out.println("You are in a deep canyon.");
-		System.out.println("Further along the canyon you hear a man calling for help.");
-		System.out.println("A large bird steps from the shadows.");
-		System.out.println("You've heard tale of this terrifying beast.");
-		System.out.println("It is the Jub Jub bird.");
-		System.out.println("The creature opens its mouth and lets out a piercing cry.");
-		System.out.println("You turn and run.");
-		south.go();
+
 		this.north.examine();
 		this.east.examine();
 		this.west.examine();
 		this.south.examine();
 
 		this.printItemsOnGround();
-
 	}
 
 }
