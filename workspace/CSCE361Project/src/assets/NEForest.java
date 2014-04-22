@@ -13,7 +13,7 @@ public class NEForest extends Location {
 	public void construct() {
 		this.north = new CardinalDirection("north", null,
 				"To the north there are massive cliffs.");
-		this.east = new CardinalDirection("east", null,
+		this.east = new CardinalDirection("east", World.neForestBuffer,
 				"To the east there is dense forest.");
 		this.south = new CardinalDirection("south", World.eForestBuffer,
 				"To the south there is dense forest.");
