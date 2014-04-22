@@ -23,7 +23,12 @@ public class World {
 		seForest = new assets.SEForest();
 		seForestBuffer = new assets.SEForestBuffer();
 		canyon = new assets.Canyon();
+<<<<<<< HEAD
 		jubjubLair = new assets.JubjubLair();
+=======
+		cave = new assets.Cave();
+		jabberwockyLair = new assets.JabberwockyLair();
+>>>>>>> db68bd3fbd6e1624e1a78a32c276a2667cfa7be6
 		
 		ears = new assets.Ears();
 		
@@ -45,7 +50,12 @@ public class World {
 		seForest.construct();
 		seForestBuffer.construct();
 		canyon.construct();
+<<<<<<< HEAD
 		jubjubLair.construct();
+=======
+		cave.construct();
+		jabberwockyLair.construct();
+>>>>>>> db68bd3fbd6e1624e1a78a32c276a2667cfa7be6
 
 		//Initialize global aspects
 		globalAspects.add(ears);
@@ -95,7 +105,12 @@ public class World {
 	public static assets.SEForest seForest = null;
 	public static assets.SEForestBuffer seForestBuffer = null;
 	public static assets.Canyon canyon = null;
+<<<<<<< HEAD
 	public static assets.JubjubLair jubjubLair = null;
+=======
+	public static assets.Cave cave = null;
+	public static assets.JabberwockyLair jabberwockyLair = null;
+>>>>>>> db68bd3fbd6e1624e1a78a32c276a2667cfa7be6
 	
 	public static assets.Ears ears = null;
 	
