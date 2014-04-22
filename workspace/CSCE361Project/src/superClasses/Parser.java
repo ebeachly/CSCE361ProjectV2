@@ -19,6 +19,7 @@ public class Parser {
 		verbs.put("quit", "quit");
 		verbs.put("q", "quit");
 		verbs.put("exit game", "quit");
+		verbs.put("exit", "quit");
 
 		verbs.put("examine", "examine");
 		verbs.put("check", "examine");
