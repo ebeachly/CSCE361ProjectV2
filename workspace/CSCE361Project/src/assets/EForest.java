@@ -10,7 +10,7 @@ public class EForest extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 	
-	public EForest(){
+	public void construct(){
 		this.north = new CardinalDirection("north", null, "To the north there is dense forest.");
 		this.east = new CardinalDirection("east", null, "To the east there is dense forest.");
 		this.south = new CardinalDirection("south", null, "To the south there is a mysterious cave hidden in the trees.");

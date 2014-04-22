@@ -10,7 +10,7 @@ public class EForestBuffer extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public EForestBuffer() {
+	public void construct() {
 		this.north = new CardinalDirection("north", World.neForestBuffer,
 				"To the north there is dense forest.");
 		this.east = new CardinalDirection("east", World.eForestBuffer,

@@ -10,9 +10,9 @@ public class SField extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public SField() {
+	public void construct() {
 
-		this.north = new CardinalDirection("north", World.wField,
+		this.north = new CardinalDirection("north", World.cField,
 				"To the north there is a house bordering a road.");
 		this.east = new CardinalDirection("east", null,
 				"To the east there is a dense forest  containing a mysterious cave.");

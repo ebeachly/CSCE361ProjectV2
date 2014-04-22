@@ -10,7 +10,7 @@ public class NEForest extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public NEForest() {
+	public void construct() {
 		this.north = new CardinalDirection("north", null,
 				"To the north there are massive cliffs");
 		this.east = new CardinalDirection("east", null,

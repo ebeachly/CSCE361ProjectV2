@@ -10,10 +10,10 @@ public class WField extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public WField() {
-		this.north = new CardinalDirection("north", null,
+	public void construct() {
+		this.north = new CardinalDirection("north", World.nwField,
 				"To the north there is a field with a wagon.");
-		this.east = new CardinalDirection("east", null,
+		this.east = new CardinalDirection("east", World.cField,
 				"To the east the road leads toward a house.");
 		this.south = new CardinalDirection("south", World.swField,
 				"To the south there is an empty field.");

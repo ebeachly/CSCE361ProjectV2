@@ -10,7 +10,7 @@ public class CField extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 
-	public CField() {
+	public void construct() {
 
 		this.north = new CardinalDirection("north", World.wField,
 				"To the north there is an empty field.");
