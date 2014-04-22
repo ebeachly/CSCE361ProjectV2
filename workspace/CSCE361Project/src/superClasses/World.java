@@ -11,11 +11,14 @@ public class World {
 		wField = new assets.WField();
 		sField = new assets.SField();
 		cField = new assets.CField();
+		nwField = new assets.NWField();
+		nField = new assets.NField();
 		eForest = new assets.EForest();
 		eForestBuffer = new assets.EForestBuffer();
 		neForest = new assets.NEForest();
 		neForestBuffer = new assets.NEForestBuffer();
-		nwField = new assets.NWField();
+		seForest = new assets.SEForest();
+		seForestBuffer = new assets.SEForestBuffer();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -26,11 +29,14 @@ public class World {
 		wField.construct();
 		sField.construct();
 		cField.construct();
+		nwField.construct();
+		nField.construct();
 		eForest.construct();
 		eForestBuffer.construct();
 		neForest.construct();
 		neForestBuffer.construct();
-		nwField.construct();
+		seForest.construct();
+		seForestBuffer.construct();
 
 		//Initialize global aspects
 		
@@ -68,11 +74,14 @@ public class World {
 	public static assets.WField wField = null;
 	public static assets.SField sField = null;
 	public static assets.CField cField = null;
+	public static assets.NWField nwField = null;
+	public static assets.NField nField = null;
 	public static assets.EForest eForest = null;
 	public static assets.EForestBuffer eForestBuffer = null;
 	public static assets.NEForest neForest = null;
 	public static assets.NEForestBuffer neForestBuffer = null;
-	public static assets.NWField nwField = null;
+	public static assets.SEForest seForest = null;
+	public static assets.SEForestBuffer seForestBuffer = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;

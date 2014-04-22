@@ -3,7 +3,7 @@ package assets;
 import superClasses.Location;
 import superClasses.World;
 
-public class NEForest extends Location {
+public class SEForestBuffer extends Location {
 
 	private CardinalDirection north;
 	private CardinalDirection east;
@@ -11,14 +11,14 @@ public class NEForest extends Location {
 	private CardinalDirection west;
 
 	public void construct() {
-		this.north = new CardinalDirection("north", null,
-				"To the north there are massive cliffs.");
-		this.east = new CardinalDirection("east", null,
+		this.north = new CardinalDirection("north", World.eForestBuffer,
+				"To the north there is dense forest");
+		this.east = new CardinalDirection("east", World.seForestBuffer,
 				"To the east there is dense forest.");
-		this.south = new CardinalDirection("south", World.eForestBuffer,
-				"To the south there is dense forest.");
-		this.west = new CardinalDirection("west", World.cField,
-				"To the west there is a field.");
+		this.south = new CardinalDirection("south", null,
+				"To the south there is a cliff.");
+		this.west = new CardinalDirection("west", World.seForest,
+				"To the west there is dense forest.");
 
 		this.aspects.add(north);
 		this.aspects.add(east);
