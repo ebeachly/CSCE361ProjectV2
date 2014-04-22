@@ -20,6 +20,10 @@ public class World {
 		seForest = new assets.SEForest();
 		seForestBuffer = new assets.SEForestBuffer();
 		canyon = new assets.Canyon();
+		cave = new assets.Cave();
+		jabberwockyLair = new assets.JabberwockyLair();
+		
+		ears = new assets.Ears();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -39,8 +43,11 @@ public class World {
 		seForest.construct();
 		seForestBuffer.construct();
 		canyon.construct();
+		cave.construct();
+		jabberwockyLair.construct();
 
 		//Initialize global aspects
+		globalAspects.add(ears);
 		
 		//Put the player in the starting location
 		Game.player.currentLocation = swField;
@@ -85,6 +92,10 @@ public class World {
 	public static assets.SEForest seForest = null;
 	public static assets.SEForestBuffer seForestBuffer = null;
 	public static assets.Canyon canyon = null;
+	public static assets.Cave cave = null;
+	public static assets.JabberwockyLair jabberwockyLair = null;
+	
+	public static assets.Ears ears = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;

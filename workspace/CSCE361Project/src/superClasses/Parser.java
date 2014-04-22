@@ -41,6 +41,7 @@ public class Parser {
 		verbs.put("run", "go");
 		verbs.put("walk", "go");
 		verbs.put("travel", "go");
+		verbs.put("enter", "go");
 
 		verbs.put("attack", "attack");
 		verbs.put("strike", "attack");
@@ -89,6 +90,7 @@ public class Parser {
 		nouns.put("cell door", "cell door");
 
 		nouns.put("sword", "sword");
+		
 		nouns.put("rock", "rock");
 		nouns.put("stone", "rock");
 		nouns.put("pebble", "rock");
@@ -106,6 +108,17 @@ public class Parser {
 		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
+		nouns.put("field", "location");
+		nouns.put("forest", "location");
+		
+		nouns.put("cave entrance", "cave entrance");
+		nouns.put("cave mouth", "cave entrance");
+		nouns.put("cave", "cave entrance");
+		
+		nouns.put("tunnel", "tunnel");
+		
+		nouns.put("bone", "bone");
+		nouns.put("femur", "bone");
 	}
 
 	public boolean parseInput(String input) {
@@ -464,7 +477,11 @@ public class Parser {
 					return true;
 				}
 			}
-			return objectPointer.interact(this.action, targetPointer);
+			boolean result = objectPointer.interact(this.action, targetPointer);
+			if( !result ){
+				System.out.println("SYSTEM: That is not a valid use of that object.");
+			}
+			return result;
 		}
 	}
 
