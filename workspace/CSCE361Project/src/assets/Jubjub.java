@@ -9,6 +9,7 @@ import superClasses.World;
 public class Jubjub extends Aspect {
 
 	private boolean isAlive = true;
+	private boolean firstAppearance = true;
 
 	public Jubjub() {
 		name = "jubjub bird";
@@ -20,17 +21,22 @@ public class Jubjub extends Aspect {
 
 	public void takeTurn() {
 		if (isAlive) {
-			System.out.println("A large creature emerges from the shadows.");
-			System.out.println("You've heard tale of this terrifying beast.");
-			System.out.println("It's the Jubjub bird");
+			if (firstAppearance) {
+				System.out
+						.println("A large creature emerges from the shadows.");
+				System.out
+						.println("You've heard tale of this terrifying beast.");
+				System.out.println("It's the Jubjub bird");
+				firstAppearance = false;
+			}
 			if (World.ears.arePlugged()) {
 				System.out
-						.println("It rears back its head and opens its mouth, but you hear nothing.");
+						.println("The jubjub bird rears back its head and opens its mouth, but you hear nothing.");
 			} else {
 				System.out
-						.println("It rears back its head and unleashes a terrifying scream.");
+						.println("The jubjub bird rears back its head and unleashes a terrifying scream.");
 				System.out.println("You turn and run back to the field.");
-				Game.player.currentLocation = World.nField;
+				Game.player.currentLocation = World.canyon;
 				System.out.println("You need something to protect your ears.");
 			}
 		}

@@ -9,12 +9,13 @@ public class Canyon extends Location {
 	private CardinalDirection east;
 	private CardinalDirection south;
 	private CardinalDirection west;
-	private Jubjub jubjub;
+	private Rock dullRock;
+	private Rock redRock;
 
 	public void construct() {
 
-		this.north = new CardinalDirection("north", World.cField,
-				"To the north the canyon continues into darkness.");
+		this.north = new CardinalDirection("north", World.jubjubLair,
+				"To the north the canyon continues into a shallow cave.");
 		this.east = new CardinalDirection("east", null,
 				"To the east there is a large cliff.");
 		this.south = new CardinalDirection("south", World.nField,
@@ -27,9 +28,11 @@ public class Canyon extends Location {
 		this.aspects.add(south);
 		this.aspects.add(west);
 
-		this.jubjub = new Jubjub();
+		this.dullRock = new Rock("dull");
+		this.redRock = new Rock("red");
 
-		this.aspects.add(jubjub);
+		this.droppedItems.add(dullRock);
+		this.droppedItems.add(redRock);
 	}
 
 	public void printDescription() {

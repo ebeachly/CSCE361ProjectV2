@@ -33,6 +33,7 @@ public class Parser {
 		verbs.put("pick up", "pick up");
 		verbs.put("grab", "pick up");
 		verbs.put("gather", "pick up");
+		verbs.put("take", "pick up");
 
 		verbs.put("drop", "drop");
 		verbs.put("throw away", "drop");
@@ -65,6 +66,12 @@ public class Parser {
 		verbs.put("lock", "lock");
 
 		verbs.put("wait", "wait");
+		
+		verbs.put("plug", "put");
+		verbs.put("put", "put");
+		
+		verbs.put("unplug", "remove");
+		verbs.put("remove", "remove");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
@@ -106,6 +113,18 @@ public class Parser {
 		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
+		nouns.put("field", "location");
+		nouns.put("forest", "location");
+		nouns.put("canyon", "location");
+		
+		nouns.put("jubjub bird", "jubjub bird");
+		nouns.put("jubjub", "jubjub bird");
+		
+		nouns.put("pocket lint", "pocket lint");
+		nouns.put("lint", "pocket lint");
+		
+		nouns.put("ears", "ears");
+		nouns.put("ear", "ears");
 	}
 
 	public boolean parseInput(String input) {
@@ -419,9 +438,9 @@ public class Parser {
 		// to execute the command
 		
 		// DEBUG
-		//System.out.println("DEBUG: Action: " + action);
-		//System.out.println("DEBUG: Object: " + object);
-		//System.out.println("DEBUG: Target: " + target);
+		System.out.println("DEBUG: Action: " + action);
+		System.out.println("DEBUG: Object: " + object);
+		System.out.println("DEBUG: Target: " + target);
 		
 		return true;
 	}

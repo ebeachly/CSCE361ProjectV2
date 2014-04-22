@@ -2,6 +2,9 @@ package superClasses;
 
 import java.util.ArrayList;
 
+import assets.PocketLint;
+import assets.Sword;
+
 
 public class World {
 
@@ -20,6 +23,9 @@ public class World {
 		seForest = new assets.SEForest();
 		seForestBuffer = new assets.SEForestBuffer();
 		canyon = new assets.Canyon();
+		jubjubLair = new assets.JubjubLair();
+		
+		ears = new assets.Ears();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -39,11 +45,15 @@ public class World {
 		seForest.construct();
 		seForestBuffer.construct();
 		canyon.construct();
+		jubjubLair.construct();
 
 		//Initialize global aspects
+		globalAspects.add(ears);
 		
 		//Put the player in the starting location
 		Game.player.currentLocation = swField;
+		Game.player.inventory.add(new Sword());
+		Game.player.inventory.add(new PocketLint());
 		
 		return;
 	}
@@ -85,6 +95,9 @@ public class World {
 	public static assets.SEForest seForest = null;
 	public static assets.SEForestBuffer seForestBuffer = null;
 	public static assets.Canyon canyon = null;
+	public static assets.JubjubLair jubjubLair = null;
+	
+	public static assets.Ears ears = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;
