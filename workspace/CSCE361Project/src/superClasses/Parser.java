@@ -117,7 +117,6 @@ public class Parser {
 		nouns.put("location", "location");
 		nouns.put("field", "location");
 		nouns.put("forest", "location");
-<<<<<<< HEAD
 		nouns.put("canyon", "location");
 		
 		nouns.put("jubjub bird", "jubjub bird");
@@ -128,7 +127,6 @@ public class Parser {
 		
 		nouns.put("ears", "ears");
 		nouns.put("ear", "ears");
-=======
 		
 		nouns.put("cave entrance", "cave entrance");
 		nouns.put("cave mouth", "cave entrance");
@@ -138,7 +136,6 @@ public class Parser {
 		
 		nouns.put("bone", "bone");
 		nouns.put("femur", "bone");
->>>>>>> db68bd3fbd6e1624e1a78a32c276a2667cfa7be6
 	}
 
 	public boolean parseInput(String input) {
