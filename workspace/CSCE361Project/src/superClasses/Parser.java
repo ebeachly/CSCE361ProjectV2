@@ -73,6 +73,8 @@ public class Parser {
 		
 		verbs.put("unplug", "remove");
 		verbs.put("remove", "remove");
+		
+		verbs.put("buy", "buy");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
@@ -112,6 +114,13 @@ public class Parser {
 		nouns.put("s", "south");
 		nouns.put("west", "west");
 		nouns.put("w", "west");
+		
+		nouns.put("front door", "front door");
+		nouns.put("back door", "back door");
+		nouns.put("merchant", "merchant");
+		nouns.put("coins", "coins");
+		nouns.put("wagon", "wagon");
+		nouns.put("shield", "shield");
 		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
