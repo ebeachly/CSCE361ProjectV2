@@ -6,7 +6,7 @@ import superClasses.Interactable;
 
 public class Merchant extends Aspect {
 
-	public static Shield shield;
+	public Shield shield;
 	public Merchant() {
 		this.name = "merchant";
 		this.shield = new Shield();

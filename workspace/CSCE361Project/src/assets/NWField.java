@@ -9,7 +9,7 @@ public class NWField extends Location {
 	private CardinalDirection east;
 	private CardinalDirection south;
 	private CardinalDirection west;
-	private Merchant merchant;
+	public Merchant merchant;
 	private Wagon wagon;
 
 	public void construct() {
