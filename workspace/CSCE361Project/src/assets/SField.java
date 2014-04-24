@@ -37,7 +37,7 @@ public class SField extends Location {
 		this.east.examine();
 		this.west.examine();
 		this.south.examine();
-		this.backDoor.examine();
+		System.out.println("There is a house with a door facing the field.");
 
 		this.printItemsOnGround();
 
