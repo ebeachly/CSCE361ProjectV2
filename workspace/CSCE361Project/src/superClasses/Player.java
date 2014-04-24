@@ -12,47 +12,19 @@ public class Player {
 		inventory = new LinkedList<Item>();
 	}
 
-	public void pickUp(String name) {
+	public boolean pickUp(String name) {
 		// Searches for an item with the given name, removes it from the ground
 		// and adds it to the inventory.
+		Item item = Game.parser.findItemOnGround(name);
 		
-		// check if name is null or empty
-		if( name == null || name.isEmpty() || name.equals(" ")){
-			System.out.println("You didn't find it on the ground.");
-			return;
+		if( item == null ){
+			return true;
+		} else {
+			System.out.println("You pick up a " + item.name + ".");
+			this.currentLocation.droppedItems.remove(item);
+			this.inventory.add(item);
+			return true;
 		}
-		
-		Iterator<Item> it = this.currentLocation.droppedItems.iterator();
-		boolean unique = true;
-		Item potential = null;
-		while (it.hasNext()) {
-			Item i = it.next();
-			if (i.name.equals(name)) {
-				System.out.println("You pick up a " + name + ".");
-				it.remove(); // I think this just removes the pointer to the
-								// object, so as long as i or another reference
-								// exists, Java won't garbage collect the item.
-				this.inventory.add(i); //
-				return;
-			}
-			if (i.name.contains(name)) {
-				if (unique) {
-					if (potential == null) {
-						potential = i;
-					} else {
-						unique = false;
-					}
-				}
-			}
-		}
-		if (potential != null && unique) {
-			System.out.println("You pick up a " + potential + ".");
-			this.currentLocation.droppedItems.remove(potential);
-			this.inventory.add(potential);
-			return;
-		}
-		System.out.println("You can't find a " + name + " on the ground.");
-		return;
 	}
 
 	public void viewInventory(){
@@ -60,7 +32,7 @@ public class Player {
 		if( !inventory.isEmpty() ){
 			System.out.println("Your inventory contains:");
 			for(Item i: inventory){
-				System.out.println(i.name);
+				System.out.println("   " + i.name);
 			}
 		} else {
 			System.out.println("Your inventory contains nothing.");

@@ -500,12 +500,11 @@ public class Parser {
 			// Game.player.viewStatus();
 			return true;
 		} else if (this.action.equals("pick up")) {
-			Game.player.pickUp(this.object); // pickup needs to find the object and
+			return Game.player.pickUp(this.object); // pickup needs to find the object and
 										// remove it, so if we found the
 										// pointer, we would just have to search
 										// again anyways because we still don't
 										// know where it is.
-			return true;
 		} else if (this.action.equals("wait")) {
 			System.out.println("Some time goes by.");
 			return true;
@@ -630,6 +629,60 @@ public class Parser {
 		}
 	}
 
+	public Item findItemOnGround(String name){
+		// Searches droppedItems of the current location for a
+		// match to name.
+		
+		// check if name is null or empty
+		if( name == null || name.isEmpty() || name.equals(" ")){
+			System.out.println("You didn't find anything.");
+			return null;
+		}
+
+		LinkedList<Item> potentialMatches = new LinkedList<Item>();
+
+		// Search through the player's inventory
+		for (Item i : Game.player.currentLocation.droppedItems) {
+			if (i.name.equals(name)) {
+				// Direct match, return this
+				return i;
+			} else if (i.name.contains(name)) {
+
+				// If it has the same name as something already in the list,
+				// don't add it
+				boolean unique = true;
+				for (Item j : potentialMatches) {
+					if (i.name.equals(j.name)) {
+						unique = false;
+					}
+				}
+
+				if (unique) {
+					potentialMatches.add(i);
+				}
+
+			}
+		}
+
+		// Return matches
+		if (potentialMatches.isEmpty()) {
+			System.out.println("You didn't find anything.");
+			return null;
+		} else if (potentialMatches.size() == 1) {
+			return potentialMatches.getFirst();
+		} else {
+			// Ambiguity
+			System.out
+					.println("SYSTEM: Could not determine what you meant by "
+							+ name
+							+ ". Please rephrase your input using one of these:");
+			for (Interactable i : potentialMatches) {
+				System.out.println("   " + i.name);
+			}
+			return null;
+		}
+	}
+	
 	public static boolean parseMenuOption(String input) {
 		input = input.toLowerCase();
 		if (input.equals("quit") || input.equals("q")) {
