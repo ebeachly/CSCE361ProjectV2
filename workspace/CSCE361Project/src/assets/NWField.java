@@ -29,6 +29,7 @@ public class NWField extends Location {
 		this.aspects.add(south);
 		this.aspects.add(west);
 		this.aspects.add(merchant);
+		this.aspects.add(wagon);
 		return;
 	}
 
