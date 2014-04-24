@@ -17,7 +17,7 @@ public class WField extends Location {
 				"To the east the road leads toward a house.");
 		this.south = new CardinalDirection("south", World.swField,
 				"To the south there is an empty field.");
-		this.west = new CardinalDirection("west", null,
+		this.west = new CardinalDirection("west", World.bridge,
 				"To the west there is a bridge toward a castle.");
 
 		this.aspects.add(north);
