@@ -1,5 +1,6 @@
 package superClasses;
 
+import assets.Merchant;
 import assets.Wizard;
 
 public abstract class Item extends Interactable {
@@ -80,6 +81,9 @@ public abstract class Item extends Interactable {
 		if (target != null) {
 			if (target instanceof Wizard) {
 				((Wizard) target).give(this);
+				return true;
+			}else if(target instanceof Merchant){
+				((Merchant) target).give(this);
 				return true;
 			}
 		}

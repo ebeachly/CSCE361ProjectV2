@@ -4,6 +4,7 @@ import superClasses.Aspect;
 import superClasses.Game;
 import superClasses.Interactable;
 import superClasses.Item;
+import superClasses.World;
 
 public class Merchant extends Aspect {
 
@@ -32,6 +33,15 @@ public class Merchant extends Aspect {
 		Game.hasLost = true;
 		return true;
 	}
-
+	public boolean give(Interactable target) {
+		if (target != null && target instanceof Coins) {
+			Game.player.inventory.remove(this);
+			Game.player.inventory.add(this.shield);
+			this.shield = null;
+			System.out.println("You bought a shield from the merchant.");
+			return true;
+		}
+		return false;
+	}
 }
 
