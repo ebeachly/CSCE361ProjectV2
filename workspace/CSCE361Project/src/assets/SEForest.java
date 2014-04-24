@@ -24,6 +24,7 @@ public class SEForest extends Location {
 		this.aspects.add(east);
 		this.aspects.add(south);
 		this.aspects.add(west);
+		this.aspects.add(new CaveEntrance(World.cave));
 
 		return;
 	}

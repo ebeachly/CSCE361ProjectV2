@@ -11,9 +11,9 @@ public class EForest extends Location {
 	private CardinalDirection west;
 	
 	public void construct(){
-		this.north = new CardinalDirection("north", null, "To the north there is dense forest.");
-		this.east = new CardinalDirection("east", null, "To the east there is dense forest.");
-		this.south = new CardinalDirection("south", null, "To the south there is a mysterious cave hidden in the trees.");
+		this.north = new CardinalDirection("north", World.neForest, "To the north there is dense forest.");
+		this.east = new CardinalDirection("east", World.eForestBuffer, "To the east the road continues into the forest.");
+		this.south = new CardinalDirection("south", World.seForest, "To the south there is a mysterious cave hidden in the trees.");
 		this.west = new CardinalDirection("west", World.cField, "To the west there is a road leading to a house.");
 		
 		this.aspects.add(north);
@@ -25,7 +25,7 @@ public class EForest extends Location {
 	}
 	
 	public void printDescription() {
-		System.out.println("You are in a forest.");
+		System.out.println("You are on a road in a forest.");
 		this.north.examine();
 		this.east.examine();
 		this.west.examine();

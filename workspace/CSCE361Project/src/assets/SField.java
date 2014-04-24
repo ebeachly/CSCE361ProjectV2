@@ -15,7 +15,7 @@ public class SField extends Location {
 
 		this.north = new CardinalDirection("north", World.wField,
 				"To the north there is a road and a house.");
-		this.east = new CardinalDirection("east", null,
+		this.east = new CardinalDirection("east", World.seForest,
 				"To the east there is a dense forest.");
 		this.south = new CardinalDirection("south", null,
 				"To the south there is a deadly cliff that drops off to the sea.");

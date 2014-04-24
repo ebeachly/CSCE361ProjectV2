@@ -10,7 +10,16 @@ public class Sword extends Item {
 	}
 	
 	protected boolean attack( Interactable target ){
-		return target.damage(this);
+		if( target != null && !(target instanceof CardinalDirection) ){
+			System.out.println("You swing your " + this.name + " at the " + target.name + ".");
+			if( !target.damage(this)){
+				System.out.println("Your attack bounces off and does nothing.");
+			}
+			return true;
+		} else {
+			System.out.println("You swing your " + this.name + " wildy around.");
+			return true;
+		}
 	}
 	
 }

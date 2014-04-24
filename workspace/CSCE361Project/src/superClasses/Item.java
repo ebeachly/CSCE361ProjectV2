@@ -34,7 +34,7 @@ public abstract class Item extends Interactable {
 			if(target!= null){
 				System.out.println("You throw your " + this.name + " at the " + target.name + ".");
 				if(!target.damage(this)){
-					System.out.println("It bounces off and falls on the ground.");
+					System.out.println("The " + this.name + " bounces off and falls on the ground.");
 				}
 			} else {
 				System.out.println("You throw your " + this.name + " away, and it lands on the ground.");
