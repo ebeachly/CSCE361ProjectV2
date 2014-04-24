@@ -19,6 +19,7 @@ public class House extends Location {
 		this.aspects.add(backDoor);
 		
 		this.droppedItems.add(new Coins());
+		this.droppedItems.add(new Map());
 	}
 
 	public void printDescription() {
