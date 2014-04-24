@@ -60,7 +60,7 @@ public class Jubjub extends Aspect {
 	}
 	
 	protected boolean examine(){
-		System.out.println("There's nothing special about it.");
+		System.out.println("A large fierce bird, that strikes fear into all who hear its shriek.");
 		return true;
 	}
 

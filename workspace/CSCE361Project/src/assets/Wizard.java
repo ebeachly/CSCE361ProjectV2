@@ -54,8 +54,8 @@ public class Wizard extends Aspect {
 			((Item) target).makeVorpal();
 			System.out
 					.println("The wizard mumbles: \"Oobaday, oobuday, ack!\"");
-			System.out.println("He hands back your " + target.name + ".");
-			System.out.println("Wizard: \" May it serve you well.\"");
+			System.out.println("He hands back your new " + target.name + ".");
+			System.out.println("Wizard: \"May it serve you well.\"");
 			System.out.println("He snaps his fingers and vanishes.");
 			World.jubjubLair.aspects.remove(this);
 			return true;
