@@ -137,6 +137,9 @@ public class Parser {
 		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
+		nouns.put("area", "location");
+		nouns.put("vicinity", "location");
+		nouns.put("land", "location");
 		nouns.put("field", "location");
 		nouns.put("forest", "location");
 		nouns.put("canyon", "location");
