@@ -15,7 +15,7 @@ public class NWField extends Location {
 	public void construct() {
 		this.north = new CardinalDirection("north", null,
 				"To the north there are massive cliffs.");
-		this.east = new CardinalDirection("east", null,
+		this.east = new CardinalDirection("east", World.nField,
 				"To the east there is a field.");
 		this.south = new CardinalDirection("south", World.wField,
 				"To the south there is a road running from east to west.");

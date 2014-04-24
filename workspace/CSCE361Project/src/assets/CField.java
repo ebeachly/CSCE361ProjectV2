@@ -13,9 +13,9 @@ public class CField extends Location {
 
 	public void construct() {
 
-		this.north = new CardinalDirection("north", World.wField,
+		this.north = new CardinalDirection("north", World.nField,
 				"To the north there is an empty field.");
-		this.east = new CardinalDirection("east", null,
+		this.east = new CardinalDirection("east", World.eForest,
 				"To the east the road leads into a dense forest.");
 		this.south = new CardinalDirection("south", World.sField,
 				"To the south there is a house with a field behind it.");
