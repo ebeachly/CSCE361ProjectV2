@@ -19,5 +19,8 @@ public class Rock extends Item {
 			this.name = "rock";
 		}
 	}
-
+	public boolean examine() {
+		System.out.println("A "+ this.name);
+		return true;
+	}
 }

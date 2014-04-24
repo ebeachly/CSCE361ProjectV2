@@ -21,5 +21,9 @@ public class Sword extends Item {
 			return true;
 		}
 	}
+	public boolean examine() {
+		System.out.println("A steel broadsword. The hilt is wrapped in leather. The gaurd is simple.");
+		return true;
+	}
 	
 }
