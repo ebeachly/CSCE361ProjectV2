@@ -24,6 +24,7 @@ public class World {
 		jabberwockyLair = new assets.JabberwockyLair();
 		jubjubLair = new assets.JubjubLair();
 		house = new assets.House();
+		bridge = new assets.Bridge();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -47,6 +48,7 @@ public class World {
 		jabberwockyLair.construct();
 		jubjubLair.construct();
 		house.construct();
+		bridge.construct();
 
 		//Initialize global aspects
 		ears = new assets.Ears();
@@ -100,6 +102,7 @@ public class World {
 	public static assets.JabberwockyLair jabberwockyLair = null;
 	public static assets.JubjubLair jubjubLair = null;
 	public static assets.House house = null;
+	public static assets.Bridge bridge = null;
 	
 	//Locations for the test world
 	public static assets.PrisonCell prisonCell = null;

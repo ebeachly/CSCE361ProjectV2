@@ -107,8 +107,6 @@ public class Parser {
 
 		nouns.put("sword", "sword");
 		
-		nouns.put("shield", "shield");
-		
 		nouns.put("red rock", "red rock");
 		nouns.put("dull rock", "dull rock");
 		nouns.put("blue rock", "blue rock");
