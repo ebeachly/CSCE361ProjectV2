@@ -48,11 +48,20 @@ public class Jubjub extends Aspect {
 		// of the effect.
 		// If there was no effect, returns false.
 		if (weapon instanceof assets.Sword) {
-			System.out.println("You have slain the jubjub bird.");
+			System.out.println("The jubjub bird falls to the ground, dead.");
 			isAlive = false;
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean isAlive(){
+		return this.isAlive;
+	}
+	
+	protected boolean examine(){
+		System.out.println("There's nothing special about it.");
+		return true;
 	}
 
 }

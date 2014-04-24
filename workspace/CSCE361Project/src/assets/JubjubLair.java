@@ -6,8 +6,8 @@ import superClasses.World;
 public class JubjubLair extends Location {
 
 	private CardinalDirection south;
-	private Jubjub jubjub;
-	private Wizard wizard;
+	protected Jubjub jubjub;
+	protected Wizard wizard;
 	
 	public void construct() {
 		this.south = new CardinalDirection("south", World.canyon,
