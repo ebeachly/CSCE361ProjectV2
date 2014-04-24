@@ -45,6 +45,9 @@ public class SWField extends Location {
 
 		if (firstTimePrintingDescription) {
 			firstTimePrintingDescription = false;
+			Game.player.inventory.add(new Sword());
+			Game.player.inventory.add(new PocketLint());
+			Game.player.inventory.add(new Shield());
 			Game.player.viewInventory();
 			System.out
 					.println("Suddenly a piece of paper comes soaring on the wind and lands right in front of your feet.");

@@ -15,7 +15,6 @@ public class Game {
 	protected static Scanner in = new Scanner(System.in);
 
 	public static void main(String args[]) {
-		player = new Player();
 		parser = new Parser();
 		in = new Scanner(System.in);
 		Scanner console = in;
@@ -43,6 +42,8 @@ public class Game {
 				input = console.nextLine();
 			} while (!Parser.parseMenuOption(input));
 
+			// Create the player
+			player = new Player();
 			// Load the world.
 			World.constructWorld();
 			// clear aspect queue

@@ -1,0 +1,13 @@
+parser
+verbs.put("buy", "buy");
+nouns.put("front door", "front door");
+nouns.put("back door", "back door");
+nouns.put("merchant", "merchant");
+		nouns.put("coins", "coins");
+		nouns.put("wagon", "wagon");
+		nouns.put("shield", "shield");
+		
+world
+house = new assets.House();
+house.construct();
+public static assets.House house = null;
