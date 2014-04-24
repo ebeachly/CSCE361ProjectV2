@@ -75,6 +75,13 @@ public class Parser {
 		verbs.put("remove", "remove");
 		
 		verbs.put("buy", "buy");
+		verbs.put("purchase", "buy");
+		
+		verbs.put("give", "give");
+		verbs.put("offer", "give");
+		
+		verbs.put("raise", "raise");
+		verbs.put("hide behind", "raise");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
@@ -99,6 +106,12 @@ public class Parser {
 		nouns.put("cell door", "cell door");
 
 		nouns.put("sword", "sword");
+		
+		nouns.put("shield", "shield");
+		
+		nouns.put("red rock", "red rock");
+		nouns.put("dull rock", "dull rock");
+		nouns.put("blue rock", "blue rock");
 		
 		nouns.put("rock", "rock");
 		nouns.put("stone", "rock");
@@ -130,6 +143,12 @@ public class Parser {
 		
 		nouns.put("jubjub bird", "jubjub bird");
 		nouns.put("jubjub", "jubjub bird");
+		nouns.put("bird", "jubjub bird");
+		
+		nouns.put("wizard", "wizard");
+		nouns.put("old man", "wizard");
+		
+		nouns.put("jabberwocky", "jabberwocky");
 		
 		nouns.put("pocket lint", "pocket lint");
 		nouns.put("lint", "pocket lint");
@@ -224,7 +243,7 @@ public class Parser {
 				startIndexOfObject = i + 1;
 				currentPartOfSpeechBeingSearchedFor = 1;
 
-			} else if (words[i].equals("to")) {
+			} /* else if (false) {
 
 				// Stop defining the range the previous part of speech was in
 				if (currentPartOfSpeechBeingSearchedFor != 0 && i >= 1) {
@@ -238,8 +257,7 @@ public class Parser {
 				// Start defining the range the Action is in
 				startIndexOfAction = i + 1;
 				currentPartOfSpeechBeingSearchedFor = 2;
-
-			} else if (words[i].equals("at") || words[i].equals("in") ){
+			} */ else if (words[i].equals("at") || words[i].equals("in") || words[i].equals("to")){
 
 				// Stop defining the range the previous part of speech was in
 				if (currentPartOfSpeechBeingSearchedFor != 0 && i >= 1) {
