@@ -2,6 +2,8 @@ package jUnitTests;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import org.junit.Before;
@@ -28,6 +30,27 @@ public class TestParser {
 
 	@Test
 	public void testParseInput() {
+		assertTrue(parser.parseInput("give merchant coins"));
+		assertArrayEquals("give".toCharArray(), parser.action.toCharArray() );
+		assertArrayEquals("merchant".toCharArray(), parser.object.toCharArray() );
+		assertArrayEquals("coins".toCharArray(), parser.target.toCharArray() );
+		
+		assertTrue(parser.parseInput("attack goblin with sword"));
+		assertArrayEquals("attack".toCharArray(), parser.action.toCharArray() );
+		assertArrayEquals("sword".toCharArray(), parser.object.toCharArray() );
+		assertArrayEquals("goblin".toCharArray(), parser.target.toCharArray() );
+		
+		assertTrue(parser.parseInput("use sword to attack goblin"));
+		assertArrayEquals("attack".toCharArray(), parser.action.toCharArray() );
+		assertArrayEquals("sword".toCharArray(), parser.object.toCharArray() );
+		assertArrayEquals("goblin".toCharArray(), parser.target.toCharArray() );
+		
+		assertTrue(parser.parseInput("give coins to merchant"));
+		assertArrayEquals("give".toCharArray(), parser.action.toCharArray() );
+		assertArrayEquals("coins".toCharArray(), parser.object.toCharArray() );
+		assertArrayEquals("merchant".toCharArray(), parser.target.toCharArray() );
+		
+		/*
 		assertTrue(parser.parseInput("quickly attack the slimey nasty goblin with my sharp metal sword"));
 		assertArrayEquals("attack".toCharArray(), parser.action.toCharArray() );
 		assertArrayEquals("sword".toCharArray(), parser.object.toCharArray() );
@@ -57,21 +80,26 @@ public class TestParser {
 		assertArrayEquals("".toCharArray(), parser.action.toCharArray() );
 		assertArrayEquals("".toCharArray(), parser.object.toCharArray() );
 		assertArrayEquals("".toCharArray(), parser.target.toCharArray() );
+		*/
 		
 	}
 
 	@Test
 	public void testParseMenuOption() {
+		InputStream in = null;
+		in = new ByteArrayInputStream("yes\nyes\n".getBytes());
+		System.setIn(in);
 		assertFalse(Parser.parseMenuOption("Gobbledygook"));
 		assertTrue(Parser.parseMenuOption("New Game"));
 		assertTrue(Parser.parseMenuOption("New"));
 		assertTrue(Parser.parseMenuOption("N"));
-		//Game.quit = false;
+		Game.quit = false;
 		assertFalse(Parser.parseMenuOption("Quit"));
 		assertTrue(Game.quit);
-		//Game.quit = false;
+		Game.quit = false;
 		assertFalse(Parser.parseMenuOption("Q"));
 		assertTrue(Game.quit);
+		System.setIn(System.in);
 		return;
 	}
 
