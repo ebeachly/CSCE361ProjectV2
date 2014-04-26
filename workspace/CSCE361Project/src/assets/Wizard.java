@@ -1,6 +1,7 @@
 package assets;
 
 import superClasses.Aspect;
+import superClasses.Game;
 import superClasses.Interactable;
 import superClasses.Item;
 import superClasses.World;
@@ -8,6 +9,7 @@ import superClasses.World;
 public class Wizard extends Aspect {
 
 	private boolean firstAppearance = true;
+	private boolean damaged = false;
 
 	public Wizard() {
 		this.name = "wizard";
@@ -27,7 +29,10 @@ public class Wizard extends Aspect {
 				System.out
 						.println("Wizard: \"For your bravery, I will enchant a single item of your choosing.\"");
 				firstAppearance = false;
-			} else {
+			} else if(this.damaged == true){
+				System.out.println("The wizard smirks and vanishes.");
+			}
+			else {
 				System.out
 						.println("\"The wizard asks: What do you want me to enchant?\"");
 			}
@@ -43,7 +48,12 @@ public class Wizard extends Aspect {
 		}
 		return false;
 	}
-
+	public boolean damage(Item weapon){
+		System.out.println("He responds with a storm of lightning bolts killing you.");
+		this.damaged = true;
+		Game.hasLost = true;
+		return true;
+	}
 	protected boolean examine() {
 		System.out.println("This old man thinks he's a wizard.");
 		return true;
