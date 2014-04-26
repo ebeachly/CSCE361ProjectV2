@@ -1,7 +1,7 @@
 package superClasses;
 
-import assets.Merchant;
-import assets.Wizard;
+import assets.aspects.Merchant;
+import assets.aspects.Wizard;
 
 public abstract class Item extends Interactable {
 	// This class represents a tool, weapon or other small item the player can
