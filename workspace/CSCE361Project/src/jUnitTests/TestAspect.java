@@ -29,7 +29,7 @@ public class TestAspect {
 	}
 
 	@Test
-	public void testInteract() throws FileNotFoundException  {
+	public void testInteract() throws FileNotFoundException {
 		
 		//Since Aspect is abstract, create an anonymous class that extends it.
 		class TestAsp extends Aspect {
@@ -44,6 +44,7 @@ public class TestAspect {
 		//Since this is a white box test, just call interact(). Don't run main.
 		assertFalse(testAsp.interact("gobbldeygook", null));
 		assertTrue(testAsp.interact("examine", null));
+		assertFalse(testAsp.interact("attack", null));
 
 		//Read in the file of what was printed out
 		Scanner sc = new Scanner(new File("testing.txt"));
@@ -54,6 +55,7 @@ public class TestAspect {
 		
 		//Compare output to expected output
 		assertArrayEquals( "There's nothing special about it.".toCharArray() , testOutput.get(0).toCharArray() );
+		assertArrayEquals( "SYSTEM: You need to specify what you are using to attack, ie: attack goblin with sword.".toCharArray() , testOutput.get(1).toCharArray() );
 		
 		//Close scanner
 		sc.close();
@@ -73,6 +75,7 @@ public class TestAspect {
 		
 		//Perform operations
 		testAsp.takeTurn();
+		
 
 	}
 
