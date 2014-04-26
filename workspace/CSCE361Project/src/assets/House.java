@@ -7,6 +7,7 @@ public class House extends Location {
 	
 	private Door frontDoor;
 	private Door backDoor;
+	private Chest chest;
 
 	public void construct() {
 
@@ -14,9 +15,11 @@ public class House extends Location {
 				"A door that leads to the road in front of the house.");
 		this.backDoor = new Door("back door", World.sField,
 				"A door that leads to the field at the back of the house.");
+		this.chest = new Chest();
 		
 		this.aspects.add(frontDoor);
 		this.aspects.add(backDoor);
+		this.aspects.add(chest);
 		
 		this.droppedItems.add(new Coins());
 		this.droppedItems.add(new Map());
