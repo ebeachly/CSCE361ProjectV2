@@ -11,6 +11,7 @@ public class NWField extends Location {
 	private CardinalDirection west;
 	public Merchant merchant;
 	private Wagon wagon;
+	protected ShieldAspect shield;
 
 	public void construct() {
 		this.north = new CardinalDirection("north", null,
@@ -23,6 +24,7 @@ public class NWField extends Location {
 				"To the west there is a raging river.");
 		this.merchant= new Merchant();
 		this.wagon = new Wagon();
+		this.shield = new ShieldAspect();
 		
 		this.aspects.add(north);
 		this.aspects.add(east);
@@ -30,6 +32,7 @@ public class NWField extends Location {
 		this.aspects.add(west);
 		this.aspects.add(merchant);
 		this.aspects.add(wagon);
+		this.aspects.add(shield);
 		return;
 	}
 
