@@ -87,6 +87,8 @@ public class Parser {
 		verbs.put("hide behind", "raise");
 		verbs.put("block", "raise");
 		verbs.put("crouch behind", "raise");
+		
+		verbs.put("help", "help");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
@@ -505,6 +507,12 @@ public class Parser {
 		
 		if (this.action.equals("quit")) {
 			Game.quit();
+			return true;
+		} else if (this.action.equals("help")) {
+			System.out.println("Try typing common commands such as:");
+			System.out.println("\tgo north");
+			System.out.println("\texamine area");
+			System.out.println("\tpick up pamphlet");
 			return true;
 		} else if (this.action.equals("examine") && this.object.equals("inventory")) {
 			Game.player.viewInventory();
