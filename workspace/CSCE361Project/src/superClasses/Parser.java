@@ -19,7 +19,6 @@ public class Parser {
 		verbs.put("quit", "quit");
 		verbs.put("q", "quit");
 		verbs.put("exit game", "quit");
-		verbs.put("exit", "quit");
 
 		verbs.put("examine", "examine");
 		verbs.put("check", "examine");
@@ -44,6 +43,7 @@ public class Parser {
 		verbs.put("walk", "go");
 		verbs.put("travel", "go");
 		verbs.put("enter", "go");
+		verbs.put("exit", "go");
 
 		verbs.put("attack", "attack");
 		verbs.put("strike", "attack");
@@ -83,6 +83,8 @@ public class Parser {
 		
 		verbs.put("raise", "raise");
 		verbs.put("hide behind", "raise");
+		verbs.put("block", "raise");
+		verbs.put("crouch behind", "raise");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
@@ -129,10 +131,12 @@ public class Parser {
 		
 		nouns.put("front door", "front door");
 		nouns.put("back door", "back door");
+		nouns.put("house", "house");
 		nouns.put("merchant", "merchant");
 		nouns.put("coins", "coins");
 		nouns.put("wagon", "wagon");
 		nouns.put("shield", "shield");
+		nouns.put("mailbox", "mailbox");
 		
 		nouns.put("room", "location");
 		nouns.put("location", "location");
@@ -153,6 +157,7 @@ public class Parser {
 		nouns.put("jabberwocky", "jabberwocky");
 		
 		nouns.put("pocket lint", "pocket lint");
+		nouns.put("pocketlint","pocket lint");
 		nouns.put("lint", "pocket lint");
 		
 		nouns.put("ears", "ears");
