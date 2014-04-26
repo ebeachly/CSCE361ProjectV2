@@ -1,7 +1,6 @@
 package superClasses;
 
 import java.util.LinkedList;
-import java.util.Iterator;
 
 public class Player {
 

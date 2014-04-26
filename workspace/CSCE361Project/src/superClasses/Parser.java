@@ -29,6 +29,7 @@ public class Parser {
 		verbs.put("stare", "examine");
 		verbs.put("view", "examine");
 		verbs.put("describe", "examine");
+		verbs.put("read", "examine");
 
 		verbs.put("pick up", "pick up");
 		verbs.put("grab", "pick up");

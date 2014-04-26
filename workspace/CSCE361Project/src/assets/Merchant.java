@@ -4,7 +4,6 @@ import superClasses.Aspect;
 import superClasses.Game;
 import superClasses.Interactable;
 import superClasses.Item;
-import superClasses.World;
 
 public class Merchant extends Aspect {
 
