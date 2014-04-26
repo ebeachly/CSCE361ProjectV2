@@ -12,8 +12,11 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
+import assets.Merchant;
+import assets.Wizard;
 import superClasses.Aspect;
 import superClasses.Game;
+import superClasses.Interactable;
 import superClasses.Item;
 import superClasses.Location;
 import superClasses.Player;
@@ -125,6 +128,44 @@ public class TestItem {
 		assertEquals(0, Game.player.inventory.size());
 		testLoc.droppedItems.clear();
 		Game.player.inventory.add(testIte);
+		
+		//test giving the item.
+		//Create a simple wizard and merchant
+		class TestWizard extends Wizard {
+			public boolean given;
+			TestWizard(){
+				this.name = "testWizard";
+				this.given = false;
+			}
+			public boolean give(Interactable target) {
+				this.given = true;
+				return true;
+			}
+		}
+		class TestMerchant extends Merchant {
+			public boolean given;
+			TestMerchant(){
+				this.name = "testMerchant";
+				this.given = false;
+			}
+			public boolean give(Interactable target) {
+				this.given = true;
+				return true;
+			}
+		}
+		TestMerchant merchant = new TestMerchant();
+		TestWizard wizard = new TestWizard();
+		
+		//Give the item to the merchant
+		assertTrue(testIte.interact("give", merchant));
+		assertTrue(merchant.given);
+		//Give the item to the wizard
+		assertTrue(testIte.interact("give", wizard));
+		assertTrue(wizard.given);
+		//Give the item to null
+		assertFalse(testIte.interact("give", null));
+		//Give the item to something that isn't a wizard or a merchant, but not null
+		assertFalse(testIte.interact("give", hardTarget));
 
 		//Read in the file of what was printed out
 		Scanner sc = new Scanner(new File("testing.txt"));
