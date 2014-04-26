@@ -13,7 +13,7 @@ public class ShieldAspect extends Aspect {
 		if (super.interact(action, target)) {
 			return true;
 		} else if (action.equals("buy")) {
-			System.out.println("With what?");
+			System.out.println("SYSTEM: With what?");
 			return true;
 		}
 		return false;
