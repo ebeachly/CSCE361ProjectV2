@@ -26,7 +26,7 @@ public class Jubjub extends Aspect {
 						.println("A large creature emerges from the shadows.");
 				System.out
 						.println("You've heard tale of this terrifying beast.");
-				System.out.println("It's the Jubjub bird");
+				System.out.println("It's the Jubjub bird.");
 				firstAppearance = false;
 			}
 			if (World.ears.arePlugged()) {
