@@ -40,7 +40,7 @@ public class CField extends Location {
 		this.east.examine();
 		this.west.examine();
 		this.south.examine();
-		System.out.println("There is an old house with a door facing the road. There is a mailbox for the house.");
+		System.out.println("There is an old house with a door facing the road.\nThere is a mailbox for the house.");
 
 		this.printItemsOnGround();
 

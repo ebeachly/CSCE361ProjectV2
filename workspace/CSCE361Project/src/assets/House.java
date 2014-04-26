@@ -26,7 +26,7 @@ public class House extends Location {
 	}
 
 	public void printDescription() {
-		System.out.println("You are in a house. There is a door in the front of the house and a door in the back of the house.");
+		System.out.println("You are in a house. There is a door in the front of the house and\na door in the back of the house.");
 		System.out.println("In the corner of the house is a bed with a large chest next to it.");
 		this.printItemsOnGround();
 

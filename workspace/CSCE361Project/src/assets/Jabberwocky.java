@@ -48,7 +48,7 @@ public class Jabberwocky extends Aspect {
 				alive = false;
 				Game.hasWon = true;
 			} else {
-				System.out.println("Your blow connects, but your sword isn't sharp enough to cut through the Jabbewocky's tough hide!");
+				System.out.println("Your blow connects, but your sword isn't sharp enough to cut through the\nJabbewocky's tough hide!");
 			}
 		} else {
 			System.out.println("Your weak attack hits the Jabberwocky, but it is protected by its thick hide.\n" + 
@@ -64,7 +64,7 @@ public class Jabberwocky extends Aspect {
 			preparingToBreatheFire = true;
 			playerJustEnteredLair = false;
 			System.out.println("The Jabberwocky's eyes of flame light up as it senses you.\n" +
-								"It backs up a bit and begins to inhale deeply. Smoke whiffles from its nostrils.");
+								"It backs up a bit and begins to inhale deeply.\nSmoke whiffles from its nostrils.");
 		} else if( preparingToBreatheFire ){
 			//Firebreath
 			preparingToBreatheFire = false;

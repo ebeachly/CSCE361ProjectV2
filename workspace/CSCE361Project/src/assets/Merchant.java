@@ -25,8 +25,8 @@ public class Merchant extends Aspect {
 	}
 	protected boolean examine() {
 		System.out.println("A rotund man with a beard, and "
-				+ "wearing a green cloak.\n He is standing next to his wagon and pointing at a sign "+
-				"that reads: \" Shield for sale\".");
+				+ "wearing a green cloak.\nHe is standing next to his wagon and pointing at a sign "+
+				"that reads:\n\" Shield for sale\".");
 		return true;
 	}
 	public boolean damage(Item weapon){

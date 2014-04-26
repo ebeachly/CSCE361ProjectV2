@@ -24,7 +24,7 @@ public class Mailbox extends Aspect {
 	}
 	protected boolean examine() {
 		if(this.map != null){
-			System.out.println("A wooden mailbox in front of the house.\n There appears to be a map in the mail box.");
+			System.out.println("A wooden mailbox in front of the house.\nThere appears to be a map in the mail box.");
 			Game.player.inventory.add(this.map);
 			this.map = null;
 			System.out.println("You found a map and placed it in your inventory.");

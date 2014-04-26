@@ -29,7 +29,7 @@ public class Tunnel extends Aspect {
 			System.out.println("You crawl through the tunnel.");
 		} else if( this.destination == World.jabberwockyLair ){
 			System.out.println("You crawl through the tunnel.\n" + 
-								"As you do, your eyes adjust to the darkness, and the stench becomes almost unbearable.");
+								"As you do, your eyes adjust to the darkness, and the stench becomes\nalmost unbearable.");
 			World.jabberwockyLair.jabberwocky.playerJustEnteredLair = true;
 		}
 		Game.player.currentLocation = this.destination;
