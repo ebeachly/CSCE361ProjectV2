@@ -2,6 +2,7 @@ package assets;
 
 import superClasses.Aspect;
 import superClasses.Interactable;
+import superClasses.World;
 
 public class Wagon extends Aspect {
 
@@ -19,6 +20,9 @@ public class Wagon extends Aspect {
 
 	protected boolean examine() {
 		System.out.println("The merchant's wagon that holds all of his wares.");
+		if( World.nwField.merchant.shield != null ){
+			System.out.println("There is a shield hanging from the side.");
+		}
 		return true;
 	}
 

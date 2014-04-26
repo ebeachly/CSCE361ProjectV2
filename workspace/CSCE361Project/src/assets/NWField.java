@@ -11,7 +11,7 @@ public class NWField extends Location {
 	private CardinalDirection west;
 	public Merchant merchant;
 	private Wagon wagon;
-	protected ShieldAspect shield;
+	public ShieldAspect shield;
 
 	public void construct() {
 		this.north = new CardinalDirection("north", null,
