@@ -139,7 +139,7 @@ public class TestItem {
 		assertArrayEquals( "You throw your testName away, and it lands on the ground.".toCharArray() , testOutput.get(2).toCharArray() );
 		assertArrayEquals( "You throw your testName at the soft target.".toCharArray() , testOutput.get(3).toCharArray() );
 		assertArrayEquals( "You throw your testName at the hard target.".toCharArray() , testOutput.get(4).toCharArray() );
-		assertArrayEquals( "It bounces off and falls on the ground.".toCharArray() , testOutput.get(5).toCharArray() );
+		assertArrayEquals( "The testName bounces off and falls on the ground.".toCharArray() , testOutput.get(5).toCharArray() );
 		assertArrayEquals( "You throw your testName away, and it lands on the ground.".toCharArray() , testOutput.get(6).toCharArray() );
 		
 		//Close scanner

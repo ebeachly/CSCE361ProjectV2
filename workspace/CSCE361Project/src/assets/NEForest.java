@@ -17,7 +17,7 @@ public class NEForest extends Location {
 				"To the east there is dense forest.");
 		this.south = new CardinalDirection("south", World.eForestBuffer,
 				"To the south there is dense forest.");
-		this.west = new CardinalDirection("west", World.cField,
+		this.west = new CardinalDirection("west", World.nField,
 				"To the west there is a field.");
 
 		this.aspects.add(north);

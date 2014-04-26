@@ -17,7 +17,7 @@ public class SEForest extends Location {
 				"To the east there is dense forest.");
 		this.south = new CardinalDirection("south", null,
 				"To the south there is a cliff.");
-		this.west = new CardinalDirection("west", World.nField,
+		this.west = new CardinalDirection("west", World.sField,
 				"To the west there is a field behind a house.");
 
 		this.aspects.add(north);

@@ -29,7 +29,7 @@ public class EForestBuffer extends Location {
 	}
 
 	public void printDescription() {
-		System.out.println("You are in a forest.");
+		System.out.println("You are on a road in a forest.");
 		this.north.examine();
 		this.east.examine();
 		this.west.examine();
