@@ -13,6 +13,8 @@ public class JubjubLair extends Location {
 		this.south = new CardinalDirection("south", World.canyon,
 				"To the south lies a canyon.");
 		
+		this.aspects.add(south);
+		
 		this.jubjub = new Jubjub();
 		this.aspects.add(jubjub);
 		
