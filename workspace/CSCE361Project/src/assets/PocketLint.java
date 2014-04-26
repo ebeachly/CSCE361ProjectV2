@@ -34,7 +34,7 @@ public class PocketLint extends Item {
 	}
 
 	protected boolean put(Interactable target) {
-		if (target instanceof Ears && World.ears.plug()) {
+		if (target instanceof Ears && World.ears.plug(this)) {
 			System.out.println("You plug your ears with pocket lint.");
 			Game.player.inventory.remove(this);
 			return true;

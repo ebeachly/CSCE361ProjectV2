@@ -74,7 +74,8 @@ public class Parser {
 		verbs.put("plug", "put");
 		verbs.put("put", "put");
 		
-		verbs.put("unplug", "remove");
+		verbs.put("unplug", "unplug");
+		
 		verbs.put("remove", "remove");
 		
 		verbs.put("buy", "buy");
