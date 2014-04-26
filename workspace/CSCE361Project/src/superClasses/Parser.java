@@ -177,6 +177,10 @@ public class Parser {
 		
 		nouns.put("bone", "bone");
 		nouns.put("femur", "bone");
+		
+		nouns.put("chest", "chest");
+		
+		nouns.put("bed", "bed");
 	}
 
 	public boolean parseInput(String input) {
