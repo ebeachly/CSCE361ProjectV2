@@ -93,10 +93,10 @@ public class Parser {
 		nouns.put("items", "inventory");
 		nouns.put("possessions", "inventory");
 
-		nouns.put("status", "status");
-		nouns.put("self", "status");
-		nouns.put("myself", "status");
-		nouns.put("health", "status");
+//		nouns.put("status", "status");
+//		nouns.put("self", "status");
+//		nouns.put("myself", "status");
+//		nouns.put("health", "status");
 		
 		nouns.put("map", "map");
 		
@@ -148,6 +148,10 @@ public class Parser {
 		nouns.put("field", "location");
 		nouns.put("forest", "location");
 		nouns.put("canyon", "location");
+		
+		nouns.put("ground", "ground");
+		nouns.put("floor", "floor");
+		nouns.put("dropped items", "ground");
 		
 		nouns.put("jubjub bird", "jubjub bird");
 		nouns.put("jubjub", "jubjub bird");
@@ -504,8 +508,8 @@ public class Parser {
 		} else if (this.action.equals("examine") && this.object.equals("location")) {
 			Game.player.currentLocation.printDescription();
 			return true;
-		} else if (this.action.equals("examine") && this.object.equals("status")) {
-			// Game.player.viewStatus();
+		} else if (this.action.equals("examine") && this.object.equals("ground")) {
+			Game.player.currentLocation.printItemsOnGround();
 			return true;
 		} else if (this.action.equals("pick up")) {
 			return Game.player.pickUp(this.object); // pickup needs to find the object and
