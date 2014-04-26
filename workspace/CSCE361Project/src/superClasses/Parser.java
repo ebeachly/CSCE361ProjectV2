@@ -34,6 +34,8 @@ public class Parser {
 		verbs.put("grab", "pick up");
 		verbs.put("gather", "pick up");
 		verbs.put("take", "pick up");
+		
+		verbs.put("eat", "eat");
 
 		verbs.put("drop", "drop");
 		verbs.put("throw away", "drop");

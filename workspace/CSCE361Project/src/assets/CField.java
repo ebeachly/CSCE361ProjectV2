@@ -29,6 +29,7 @@ public class CField extends Location {
 		this.aspects.add(south);
 		this.aspects.add(west);
 		this.aspects.add(frontDoor);
+		this.aspects.add(new HouseAspect());
 	}
 
 	public void printDescription() {
