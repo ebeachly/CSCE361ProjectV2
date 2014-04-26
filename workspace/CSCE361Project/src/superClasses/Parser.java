@@ -485,9 +485,9 @@ public class Parser {
 		// to execute the command
 		
 		// DEBUG
-		System.out.println("DEBUG: Action: " + action);
-		System.out.println("DEBUG: Object: " + object);
-		System.out.println("DEBUG: Target: " + target);
+		// System.out.println("DEBUG: Action: " + action);
+		// System.out.println("DEBUG: Object: " + object);
+		// System.out.println("DEBUG: Target: " + target);
 		
 		return true;
 	}

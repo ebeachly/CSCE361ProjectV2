@@ -21,7 +21,7 @@ public class ShieldAspect extends Aspect {
 
 	public boolean examine() {
 		System.out
-				.println("A large shiny shield hangs on the merchants wagon. It looks heavy.");
+				.println("A large shiny shield hangs on the merchant's wagon. It looks heavy.");
 		return true;
 	}
 
