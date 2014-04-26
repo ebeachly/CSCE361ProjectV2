@@ -14,7 +14,7 @@ public class ShieldAspect extends Aspect {
 			return true;
 		} else if (action.equals("buy")) {
 			System.out.println("With what?");
-			return false;
+			return true;
 		}
 		return false;
 	}
