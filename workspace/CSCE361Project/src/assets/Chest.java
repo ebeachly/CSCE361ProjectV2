@@ -9,7 +9,7 @@ public class Chest extends Aspect {
 	}
 	
 	protected boolean examine(){
-		System.out.println("It is empty.");
+		System.out.println("It is a dark oak chest with nothing inside.");
 		return true;
 	}
 	
