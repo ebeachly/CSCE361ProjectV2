@@ -29,11 +29,7 @@ public class PocketLint extends Item {
 	}
 
 	protected boolean examine() {
-		if (this.name.contains("vorpal")) {
-			System.out.println("The edges of it seem exceedingly sharp.");
-		} else {
-			System.out.println("There's nothing special about it.");
-		}
+		System.out.println("A thumb-sized piece of fluff with peculiar sound-absorbtion qualities.");
 		return true;
 	}
 
