@@ -7,6 +7,7 @@ public class Bed extends Aspect {
 	Coins coins;
 	
 	public Bed(){
+		this.name = "bed";
 		this.coins = new Coins();
 	}
 	
