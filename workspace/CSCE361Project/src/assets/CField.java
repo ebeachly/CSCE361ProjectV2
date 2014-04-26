@@ -10,6 +10,7 @@ public class CField extends Location {
 	private CardinalDirection south;
 	private CardinalDirection west;
 	private Door frontDoor;
+	private Mailbox mailbox;
 
 	public void construct() {
 
@@ -23,13 +24,14 @@ public class CField extends Location {
 				"To the west, the road continues toward a large castle.");
 		this.frontDoor = new Door("front door", World.house,
 				"The wooden door at the front entrance of the house.");
-
+		this.mailbox = new Mailbox();
 		this.aspects.add(north);
 		this.aspects.add(east);
 		this.aspects.add(south);
 		this.aspects.add(west);
 		this.aspects.add(frontDoor);
 		this.aspects.add(new HouseAspect());
+		this.aspects.add(mailbox);
 	}
 
 	public void printDescription() {
@@ -38,7 +40,7 @@ public class CField extends Location {
 		this.east.examine();
 		this.west.examine();
 		this.south.examine();
-		System.out.println("There is an old house with a door facing the road.");
+		System.out.println("There is an old house with a door facing the road. There is a mailbox for the house.");
 
 		this.printItemsOnGround();
 
