@@ -12,7 +12,7 @@ public class House extends Location {
 
 		this.frontDoor = new Door("front door", World.cField,
 				"A door that leads to the road in front of the house.");
-		this.backDoor = new Door("south door", World.sField,
+		this.backDoor = new Door("back door", World.sField,
 				"A door that leads to the field at the back of the house.");
 		
 		this.aspects.add(frontDoor);
@@ -23,10 +23,7 @@ public class House extends Location {
 	}
 
 	public void printDescription() {
-		System.out.println("You are in a house. There is a door in the north part of the room, and one in the south part of the room.");
-		this.frontDoor.examine();
-		this.backDoor.examine();
-
+		System.out.println("You are in a house. There is a door in the front of the house and a door in the back of the house.");
 		this.printItemsOnGround();
 
 	}
