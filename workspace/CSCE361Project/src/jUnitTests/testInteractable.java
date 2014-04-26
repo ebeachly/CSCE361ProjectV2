@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -18,14 +17,12 @@ public class TestInteractable {
 	
 	final static PrintStream stdout = System.out;
 	private static PrintStream out = null;
-	HashMap<Integer, String> output;
 
 	@Before
 	public void setUp() throws Exception {
 		//Setup testing utilities
 		out = new PrintStream("testing.txt");
 		System.setOut(out);
-		output = new HashMap<Integer, String>();
 	}
 
 	@Test

@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -18,7 +17,6 @@ import superClasses.Location;
 public class TestLocation {
 	final static PrintStream stdout = System.out;
 	private static PrintStream out = null;
-	HashMap<Integer, String> output;
 
 
 	@Before
@@ -26,7 +24,6 @@ public class TestLocation {
 		//Setup testing utilities
 		out = new PrintStream("testing.txt");
 		System.setOut(out);
-		output = new HashMap<Integer, String>();
 	}
 
 
