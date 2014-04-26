@@ -509,7 +509,7 @@ public class Parser {
 			Game.quit();
 			return true;
 		} else if (this.action.equals("help")) {
-			System.out.println("Try typing common commands such as:");
+			System.out.println("Try typing common actions such as:");
 			System.out.println("\tgo north");
 			System.out.println("\texamine area");
 			System.out.println("\tpick up pamphlet");
@@ -645,7 +645,7 @@ public class Parser {
 			System.out
 					.println("SYSTEM: Could not determine what you meant by "
 							+ name
-							+ ". Please rephrase your input using one of these:");
+							+ ".\nSYSTEM: Please rephrase your input using one of these:");
 			for (Interactable i : potentialMatches) {
 				System.out.println("   " + i.name);
 			}
@@ -699,7 +699,7 @@ public class Parser {
 			System.out
 					.println("SYSTEM: Could not determine what you meant by "
 							+ name
-							+ ". Please rephrase your input using one of these:");
+							+ ".\nSYSTEM: Please rephrase your input using one of these:");
 			for (Interactable i : potentialMatches) {
 				System.out.println("   " + i.name);
 			}
