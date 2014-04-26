@@ -1,4 +1,4 @@
-package superClasses;
+package blackboxTests;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import superClasses.Game;
 
 public class GameTestDriver {
 

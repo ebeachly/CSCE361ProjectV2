@@ -1,4 +1,4 @@
-package assets;
+package blackboxTests;
 
 import superClasses.Aspect;
 import superClasses.Game;

@@ -1,4 +1,4 @@
-package assets;
+package blackboxTests;
 
 import superClasses.Location;
 import superClasses.World;

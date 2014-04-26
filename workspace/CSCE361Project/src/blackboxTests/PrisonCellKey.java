@@ -1,4 +1,4 @@
-package assets;
+package blackboxTests;
 
 import superClasses.Interactable;
 import superClasses.Item;

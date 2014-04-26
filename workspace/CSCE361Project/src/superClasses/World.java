@@ -62,8 +62,8 @@ public class World {
 	
 	public static void constructTestWorld() {
 		//First phase of construction: allocate memory for the locations and global aspects
-		World.prisonCell = new assets.PrisonCell();
-		World.prisonHallway = new assets.PrisonHallway();
+		World.prisonCell = new blackboxTests.PrisonCell();
+		World.prisonHallway = new blackboxTests.PrisonHallway();
 		
 		World.globalAspects = new ArrayList<Aspect>();
 		
@@ -73,7 +73,7 @@ public class World {
 		World.prisonCell.construct();
 		World.prisonHallway.construct();
 
-		assets.Guard prisonGuard = new assets.Guard(prisonCell.getCellDoor());
+		blackboxTests.Guard prisonGuard = new blackboxTests.Guard(prisonCell.getCellDoor());
 		globalAspects.add(prisonGuard);
 		
 		//Put the player in the cell
@@ -105,7 +105,7 @@ public class World {
 	public static assets.Bridge bridge = null;
 	
 	//Locations for the test world
-	public static assets.PrisonCell prisonCell = null;
-	public static assets.PrisonHallway prisonHallway = null;
+	public static blackboxTests.PrisonCell prisonCell = null;
+	public static blackboxTests.PrisonHallway prisonHallway = null;
 
 }
