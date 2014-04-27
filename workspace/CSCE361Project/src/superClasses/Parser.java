@@ -514,7 +514,7 @@ public class Parser {
 			System.out.println("\tgo north");
 			System.out.println("\texamine area");
 			System.out.println("\tpick up pamphlet");
-			return true;
+			return false;
 		} else if (this.action.equals("examine") && this.object.equals("inventory")) {
 			Game.player.viewInventory();
 			return true;
@@ -554,7 +554,7 @@ public class Parser {
 		}
 	}
 
-	private Interactable findInteractable(String name) {
+	public Interactable findInteractable(String name) {
 		// Searches inventory and aspect list of the current location for a
 		// match to name.
 		// Don't search through items on the ground because they shouldn't be

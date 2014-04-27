@@ -12,7 +12,7 @@ public class Game {
 	public static boolean hasWon = false;
 	public static boolean quit = false;
 	public static Queue<Aspect> aspects;
-	protected static Scanner in;
+	public static Scanner in;
 
 	public static void main(String args[]) {
 		parser = new Parser();
