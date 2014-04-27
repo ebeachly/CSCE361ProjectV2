@@ -47,7 +47,7 @@ public class Player {
 			}
 		}
 		//Inventory does not contain item, tells the player that information
-		System.out.println("You don't have " + itemIn.name + " in your inventory.");
+		System.out.println("You don't have a " + itemIn.name + " in your inventory.");
 		return false;
 	}
 	
