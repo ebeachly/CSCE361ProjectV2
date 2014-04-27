@@ -22,7 +22,7 @@ public class Bed extends Aspect {
 	}
 	
 	private boolean sleep(){
-		System.out.println("You sleep in the bed for a bit.\n You wake up a while later and feel really itchy.");
+		System.out.println("You sleep in the bed for a bit.\nYou wake up a while later and feel really itchy.");
 		return true;
 	}
 	

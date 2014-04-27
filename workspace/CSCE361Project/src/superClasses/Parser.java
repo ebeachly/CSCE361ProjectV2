@@ -89,12 +89,15 @@ public class Parser {
 		verbs.put("block", "raise");
 		verbs.put("crouch behind", "raise");
 		
+		verbs.put("sleep", "sleep");
+		
 		verbs.put("help", "help");
 
 		nouns.put("inventory", "inventory");
 		nouns.put("bag", "inventory");
 		nouns.put("items", "inventory");
 		nouns.put("possessions", "inventory");
+		
 
 //		nouns.put("status", "status");
 //		nouns.put("self", "status");
