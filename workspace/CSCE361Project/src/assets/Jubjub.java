@@ -35,9 +35,10 @@ public class Jubjub extends Aspect {
 			} else {
 				System.out
 						.println("The jubjub bird rears back its head and unleashes a terrifying scream.");
-				System.out.println("You turn and run back to the field.");
+				System.out.println("You turn and run back to the canyon.");
 				Game.player.currentLocation = World.canyon;
 				System.out.println("You need something to protect your ears.");
+				World.canyon.printDescription();
 			}
 		}
 		return;
