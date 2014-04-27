@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import superClasses.Interactable;
 
+// Tests Interactable
 public class TestInteractable {
 	
 	final static PrintStream stdout = System.out;
