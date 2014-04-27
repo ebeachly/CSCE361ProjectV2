@@ -219,9 +219,9 @@ public class Parser {
 		// Convert uppercase to lowercase letters
 		input = input.toLowerCase();
 		// remove all characters that aren't lowercase letters or spaces
-		// input.replaceAll("[^a-z ]", "");
+		input = input.replaceAll("[^ a-z]", "").trim();
 		// simplify all whitespace
-		// input.replaceAll(" ++", " ");
+		input = input.replaceAll("\\s+", " ");
 
 		// Tokenize into words
 		String[] words = input.split(" ");
