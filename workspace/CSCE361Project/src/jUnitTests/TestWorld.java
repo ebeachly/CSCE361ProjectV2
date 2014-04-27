@@ -1,5 +1,7 @@
 package jUnitTests;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.InputStream;
 import java.io.PrintStream;
 
@@ -25,6 +27,8 @@ public class TestWorld {
 
 	@Test
 	public void test() {
+		World w = new World();
+		assertNotNull(w);
 		Game.player = new Player();
 		World.constructTestWorld();
 		World.constructWorld();

@@ -1,6 +1,7 @@
 package jUnitTests;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -30,10 +31,30 @@ public class TestGame {
 		System.setOut(out);
 		Game.quit = false;
 	}
+	
+	@Test
+	public void test(){
+		Game game = new Game();
+		assertNotNull(game);
+		Game.clearAspectQueue();
+	}
 
 	@Test
 	public void testQuit() throws FileNotFoundException {
 		clearCommands();
+		addCommand("quit");
+		addCommand("quit");
+		addCommand("what");
+		addCommand("no");
+		addCommand("quit");
+		addCommand("n");
+		addCommand("quit");
+		addCommand("yes");
+		System.setIn(in);
+		Game.main(null);
+
+		clearCommands();
+		addCommand("what");
 		addCommand("quit");
 		addCommand("y");
 		System.setIn(in);
@@ -75,6 +96,36 @@ public class TestGame {
 		assertArrayEquals(
 				">> Are you sure you want to quit? (y/n)".toCharArray(),
 				testOutput.get(9).toCharArray());
+		assertArrayEquals(
+				">> >> >> >> Are you sure you want to quit? (y/n)".toCharArray(),
+				testOutput.get(10).toCharArray());
+		assertArrayEquals(
+				">> >> Are you sure you want to quit? (y/n)".toCharArray(),
+				testOutput.get(11).toCharArray());
+		assertArrayEquals(
+				">>      ____.     ___.  ___.                                      __           "
+						.toCharArray(), testOutput.get(12).toCharArray());
+		assertArrayEquals(
+				"    |    |____ \\_ |__\\_ |__   _____________  _  ______   ____ |  | _____.__."
+						.toCharArray(), testOutput.get(13).toCharArray());
+		assertArrayEquals(
+				"    |    \\__  \\ | __ \\| __ \\_/ __ \\_  __ \\ \\/ \\/ /  _ \\_/ ___\\|  |/ <   |  |"
+						.toCharArray(), testOutput.get(14).toCharArray());
+		assertArrayEquals(
+				"/\\__|    |/ __ \\| \\_\\ \\ \\_\\ \\  ___/|  | \\/\\     (  <_> )  \\___|    < \\___  |"
+						.toCharArray(), testOutput.get(15).toCharArray());
+		assertArrayEquals(
+				"\\________(____  /___  /___  /\\___  >__|    \\/\\_/ \\____/ \\___  >__|_ \\/ ____|"
+						.toCharArray(), testOutput.get(16).toCharArray());
+		assertArrayEquals(
+				"              \\/    \\/    \\/     \\/                         \\/     \\/\\/     "
+						.toCharArray(), testOutput.get(17).toCharArray());
+		assertArrayEquals("Type:".toCharArray(), testOutput.get(18)
+				.toCharArray());
+		assertArrayEquals("\"new game\" to start new game".toCharArray(),
+				testOutput.get(19).toCharArray());
+		assertArrayEquals("\"quit\" to quit".toCharArray(), testOutput.get(20)
+				.toCharArray());
 	}
 
 	@Test
@@ -155,6 +206,7 @@ public class TestGame {
 		// testOutput.get(20).toCharArray());
 	}
 
+	
 	@Test
 	public void testGarbage() throws FileNotFoundException {
 		clearCommands();
@@ -265,6 +317,89 @@ public class TestGame {
 				testOutput.get(testOutput.size() - 14).toCharArray());
 		assertArrayEquals(
 				"\\/                            \\/             \\/\\/\\/\\/"
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 13).toCharArray());
+		assertArrayEquals("".toCharArray(),
+				testOutput.get(testOutput.size() - 12).toCharArray());
+		assertArrayEquals(
+				"     ____.     ___.  ___.                                      __           "
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 11).toCharArray());
+		assertArrayEquals(
+				"    |    |____ \\_ |__\\_ |__   _____________  _  ______   ____ |  | _____.__."
+						.toCharArray(), testOutput.get(testOutput.size() - 10)
+						.toCharArray());
+		assertArrayEquals(
+				"    |    \\__  \\ | __ \\| __ \\_/ __ \\_  __ \\ \\/ \\/ /  _ \\_/ ___\\|  |/ <   |  |"
+						.toCharArray(), testOutput.get(testOutput.size() - 9)
+						.toCharArray());
+		assertArrayEquals(
+				"/\\__|    |/ __ \\| \\_\\ \\ \\_\\ \\  ___/|  | \\/\\     (  <_> )  \\___|    < \\___  |"
+						.toCharArray(), testOutput.get(testOutput.size() - 8)
+						.toCharArray());
+		assertArrayEquals(
+				"\\________(____  /___  /___  /\\___  >__|    \\/\\_/ \\____/ \\___  >__|_ \\/ ____|"
+						.toCharArray(), testOutput.get(testOutput.size() - 7)
+						.toCharArray());
+		assertArrayEquals(
+				"              \\/    \\/    \\/     \\/                         \\/     \\/\\/     "
+						.toCharArray(), testOutput.get(testOutput.size() - 6)
+						.toCharArray());
+		assertArrayEquals("Type:".toCharArray(),
+				testOutput.get(testOutput.size() - 5).toCharArray());
+		assertArrayEquals("\"new game\" to start new game".toCharArray(),
+				testOutput.get(testOutput.size() - 4).toCharArray());
+		assertArrayEquals("\"quit\" to quit".toCharArray(),
+				testOutput.get(testOutput.size() - 3).toCharArray());
+		assertArrayEquals(
+				">> Are you sure you want to quit? (y/n)".toCharArray(),
+				testOutput.get(testOutput.size() - 2).toCharArray());
+		assertArrayEquals(">> ".toCharArray(),
+				testOutput.get(testOutput.size() - 1).toCharArray());
+	}
+
+	@Test
+	public void testLose() throws FileNotFoundException {
+		clearCommands();
+		addCommand("new game");
+		addCommand("go north");
+		addCommand("go north");
+		addCommand("throw lint at merchant");
+		addCommand("quit");
+		addCommand("yes");
+		System.setIn(in);
+		Game.main(null);
+
+		// Read in the file of what was printed out
+		Scanner sc = new Scanner(new File("testing.txt"));
+		ArrayList<String> testOutput = new ArrayList<String>();
+		while (sc.hasNextLine()) {
+			testOutput.add(sc.nextLine());
+		}
+		sc.close();
+
+		assertArrayEquals(
+				"_____.___.              .____                        "
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 18).toCharArray());
+		assertArrayEquals(
+				"\\__  |   | ____  __ __  |    |    ____  ______ ____  "
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 17).toCharArray());
+		assertArrayEquals(
+				" /   |   |/  _ \\|  |  \\ |    |   /  _ \\/  ___// __ \\ "
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 16).toCharArray());
+		assertArrayEquals(
+				" \\____   (  <_> )  |  / |    |__(  <_> )___ \\\\  ___/ "
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 15).toCharArray());
+		assertArrayEquals(
+				" / ______|\\____/|____/  |_______ \\____/____  >\\___  >"
+						.toCharArray(),
+				testOutput.get(testOutput.size() - 14).toCharArray());
+		assertArrayEquals(
+				" \\/                             \\/         \\/     \\/ "
 						.toCharArray(),
 				testOutput.get(testOutput.size() - 13).toCharArray());
 		assertArrayEquals("".toCharArray(),
