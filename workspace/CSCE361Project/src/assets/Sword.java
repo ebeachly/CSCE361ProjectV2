@@ -22,7 +22,10 @@ public class Sword extends Item {
 		}
 	}
 	public boolean examine() {
-		System.out.println("A steel broadsword. The hilt is wrapped in leather. The gaurd is simple.");
+		System.out.println("A steel broadsword. The hilt is wrapped in leather.");
+		if( this.name.contains("vorpal")){
+			System.out.println("The edge seems very sharp.");
+		}
 		return true;
 	}
 	
