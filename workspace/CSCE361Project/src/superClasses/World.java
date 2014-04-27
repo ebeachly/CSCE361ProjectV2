@@ -26,7 +26,7 @@ public class World {
 		house = new assets.House();
 		bridge = new assets.Bridge();
 		
-		World.globalAspects = new ArrayList<Aspect>();
+		World.globalAspects = new ArrayList<Interactable>();
 		
 		//Second phase of construction: create local aspects and dropped items that might reference locations and global aspects
 		// Construct Linkages that might reference other Locations (Second phase
@@ -65,7 +65,7 @@ public class World {
 		World.prisonCell = new blackboxTests.PrisonCell();
 		World.prisonHallway = new blackboxTests.PrisonHallway();
 		
-		World.globalAspects = new ArrayList<Aspect>();
+		World.globalAspects = new ArrayList<Interactable>();
 		
 		//Second phase of construction: create local aspects and dropped items that might reference locations and global aspects
 		// Construct Linkages that might reference other Locations (Second phase
@@ -82,7 +82,7 @@ public class World {
 	}
 
 	public static assets.Ears ears = null;
-	public static ArrayList<Aspect> globalAspects = null;
+	public static ArrayList<Interactable> globalAspects = null;
 	
 	//Locations for the main world
 	public static assets.SWField swField = null;

@@ -155,7 +155,7 @@ public class TestParser {
 		Game.player.inventory.add(ite4);
 		testLoc.aspects.add(asp1);
 		testLoc.aspects.add(asp2);
-		World.globalAspects = new ArrayList<Aspect>();
+		World.globalAspects = new ArrayList<Interactable>();
 		World.globalAspects.add(asp3);
 		World.globalAspects.add(asp4);
 		
@@ -278,7 +278,7 @@ public class TestParser {
 		Game.player = testPlayer;
 		Game.player.currentLocation = testLoc;
 		Game.player.inventory.add(item);
-		World.globalAspects = new ArrayList<Aspect>();
+		World.globalAspects = new ArrayList<Interactable>();
 		
 		//Set up the input stream for testing quit.
 		InputStream in = new ByteArrayInputStream("yes\n".getBytes());

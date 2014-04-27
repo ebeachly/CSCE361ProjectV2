@@ -29,7 +29,8 @@ public class PocketLint extends Item {
 	}
 
 	protected boolean examine() {
-		System.out.println("A thumb-sized piece of fluff with peculiar sound-absorbtion qualities.");
+		System.out
+				.println("A thumb-sized piece of fluff with peculiar sound-absorbtion qualities.");
 		return true;
 	}
 
@@ -43,12 +44,16 @@ public class PocketLint extends Item {
 	}
 
 	protected boolean remove(Interactable target) {
-		if (target instanceof Ears && World.ears.unplug()) {
-			System.out.println("You can hear again.");
-			Game.player.inventory.add(this);
-			return true;
+		if (World.ears.arePlugged()) {
+			if (target instanceof Ears && World.ears.unplug()) {
+				System.out.println("You can hear again.");
+				Game.player.inventory.add(this);
+				return true;
+			}
+		} else {
+			System.out.println("There is nothing in your ears.");
 		}
-		return false;
+		return true;
 	}
 
 }

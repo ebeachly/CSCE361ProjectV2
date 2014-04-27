@@ -3,6 +3,7 @@ package assets;
 import superClasses.Aspect;
 import superClasses.Game;
 import superClasses.Interactable;
+import superClasses.World;
 
 public class Ears extends Aspect {
 
@@ -13,9 +14,22 @@ public class Ears extends Aspect {
 		name = "ears";
 	}
 
-	protected boolean plug(PocketLint pocketLint) {
-		plugged = true;
-		this.pocketLint = pocketLint;
+	protected boolean plug(Interactable target) {
+		if (target != null) {
+			if (!plugged) {
+				if (target instanceof PocketLint) {
+					plugged = true;
+					this.pocketLint = (PocketLint) target;
+					World.globalAspects.add(pocketLint);
+				} else {
+					return false;
+				}
+			} else {
+				System.out.println("There is nothing in your ears.");
+			}
+		} else {
+			System.out.println("SYSTEM: With what?");
+		}
 		return true;
 	}
 
@@ -23,8 +37,11 @@ public class Ears extends Aspect {
 		if (plugged) {
 			plugged = false;
 			Game.player.inventory.add(this.pocketLint);
+			World.globalAspects.remove(pocketLint);
 			System.out.println("You remove the pocket lint from your ears.");
+			return true;
 		}
+		System.out.println("There is nothing in your ears.");
 		return true;
 	}
 
@@ -37,6 +54,8 @@ public class Ears extends Aspect {
 			return true;
 		} else if (action.equals("unplug")) {
 			return this.unplug();
+		} else if (action.equals("put")) {
+			return this.plug(target);
 		}
 		return false;
 	}

@@ -60,7 +60,7 @@ public class Game {
 					if( quit ){
 						return;
 					}
-					aspects.addAll(World.globalAspects);
+					//aspects.addAll(World.globalAspects);
 					aspects.addAll(player.currentLocation.aspects);
 				while (!aspects.isEmpty()) {
 					aspects.poll().takeTurn();

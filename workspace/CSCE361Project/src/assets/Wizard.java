@@ -9,6 +9,7 @@ import superClasses.World;
 public class Wizard extends Aspect {
 
 	private boolean firstAppearance = true;
+	private boolean hasSpoken = false;
 	private boolean damaged = false;
 
 	public Wizard() {
@@ -20,21 +21,28 @@ public class Wizard extends Aspect {
 			if (firstAppearance) {
 				System.out
 						.println("An old man in a bath robe steps out from behind a bush.");
-				System.out
-						.println("Old man: \"Oh thank you kind sir. You have saved my life.\"");
-				System.out
-						.println("Old man: \"That wretched bird has had me trapped down here for days.\"");
-				System.out
-						.println("Old man: \"I am the most powerful wizard in this land.\"");
-				System.out
-						.println("Wizard: \"For your bravery, I will enchant a single item of your choosing.\"");
 				firstAppearance = false;
-			} else if(this.damaged == true){
-				System.out.println("The wizard smirks and vanishes.");
 			}
-			else {
-				System.out
-						.println("\"The wizard asks: What do you want me to enchant?\"");
+			if (this.damaged == true) {
+				System.out.println("The wizard smirks and vanishes.");
+			} else {
+				if (World.ears.arePlugged()) {
+					System.out
+							.println("Old man: \"mumnub numb mbn mbmn bmbmbn bmm bm bn.\"");
+				} else if (!hasSpoken) {
+					System.out
+							.println("Old man: \"Oh thank you kind sir. You have saved my life.\"");
+					System.out
+							.println("Old man: \"That wretched bird has had me trapped down here for days.\"");
+					System.out
+							.println("Old man: \"I am the most powerful wizard in this land.\"");
+					System.out
+							.println("Wizard: \"For your bravery, I will enchant a single item of your choosing.\"");
+					hasSpoken = true;
+				} else {
+					System.out
+							.println("\"The wizard asks: What do you want me to enchant?\"");
+				}
 			}
 		}
 		return;
@@ -48,12 +56,15 @@ public class Wizard extends Aspect {
 		}
 		return false;
 	}
-	public boolean damage(Item weapon){
-		System.out.println("He responds with a storm of lightning bolts killing you.");
+
+	public boolean damage(Item weapon) {
+		System.out
+				.println("He responds with a storm of lightning bolts killing you.");
 		this.damaged = true;
 		Game.hasLost = true;
 		return true;
 	}
+
 	protected boolean examine() {
 		System.out.println("This old man thinks he's a wizard.");
 		return true;
@@ -62,10 +73,19 @@ public class Wizard extends Aspect {
 	public boolean give(Interactable target) {
 		if (target != null && target instanceof Item) {
 			((Item) target).makeVorpal();
-			System.out
-					.println("The wizard mumbles: \"Oobaday, oobuday, ack!\"");
-			System.out.println("He hands back your new " + target.name + ".");
-			System.out.println("Wizard: \"May it serve you well.\"");
+			if (World.ears.arePlugged()) {
+				System.out
+						.println("The wizard mumbles: \"MBMMM NUMBUM BB!\"");
+				System.out.println("He hands back your new " + target.name
+						+ ".");
+				System.out.println("Wizard: \"mumnub numb mbn mbmn bmb.\"");
+			} else {
+				System.out
+						.println("The wizard mumbles: \"Oobaday, oobuday, ack!\"");
+				System.out.println("He hands back your new " + target.name
+						+ ".");
+				System.out.println("Wizard: \"May it serve you well.\"");
+			}
 			System.out.println("He snaps his fingers and vanishes.");
 			World.jubjubLair.aspects.remove(this);
 			return true;
