@@ -6,7 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestAspect.class, TestInteractable.class, TestItem.class,
-		TestLocation.class, TestParser.class, TestGame.class })
+		TestLocation.class, TestParser.class, TestGame.class, TestWorld.class,
+		TestPlayer.class })
 public class AllTests {
 
 }
