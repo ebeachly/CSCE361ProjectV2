@@ -21,11 +21,13 @@ public class Ears extends Aspect {
 					plugged = true;
 					this.pocketLint = (PocketLint) target;
 					World.globalAspects.add(pocketLint);
+					Game.player.inventory.remove(pocketLint);
+					System.out.println("You plug your ears with pocket lint.");
 				} else {
 					return false;
 				}
 			} else {
-				System.out.println("There is nothing in your ears.");
+				System.out.println("Your ears are already plugged.");
 			}
 		} else {
 			System.out.println("SYSTEM: With what?");
